@@ -1,0 +1,16 @@
+/* Custom styles for the Apply page */
+#apply-container .apply-title {
+    color: #4a90e2;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#apply-container .input-selection {
+    margin-bottom: 20px;
+}
+
+#apply-container .macro-selection {
+    margin-top: 20px;
+}
+
+/* Add more custom styles as needed */

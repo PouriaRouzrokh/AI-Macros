@@ -6,6 +6,7 @@ module.exports = {
   entry: {
     background: './src/background.js',
     content: './src/content.js',
+    sidepanel: './src/sidepanel.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

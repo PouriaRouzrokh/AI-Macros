@@ -4,6 +4,13 @@
   \***************************/
 // Bubble handling ---------------------------------------------------------------------------
 
+// Allows users to open the side panel by clicking on the action toolbar icon
+chrome.sidePanel.setPanelBehavior({
+  openPanelOnActionClick: true
+})["catch"](function (error) {
+  return console.error(error);
+});
+
 // Show/hide bubble when tab becomes active/inactive
 chrome.tabs.onActivated.addListener(function (activeInfo) {
   chrome.tabs.get(activeInfo.tabId, function (tab) {
@@ -36,13 +43,6 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
       });
     }
   }
-});
-
-// Allows users to open the side panel by clicking on the action toolbar icon
-chrome.sidePanel.setPanelBehavior({
-  openPanelOnActionClick: true
-})["catch"](function (error) {
-  return console.error(error);
 });
 
 // Open the side panel when the bubble is clicked
