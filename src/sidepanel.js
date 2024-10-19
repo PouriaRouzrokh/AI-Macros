@@ -47,7 +47,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
                 currentPage = page;
-            }, 300); // Match this to your CSS transition duration
+
+                // Load page-specific JavaScript if needed
+                if (page === 'apis') {
+                    const script = document.createElement('script');
+                    script.src = chrome.runtime.getURL('../src/apis.js');
+                    script.type = 'module';
+                    document.body.appendChild(script);
+                }
+
+                // Dispatch a custom event when content is loaded
+                const event = new CustomEvent('contentLoaded', { detail: { page } });
+                document.dispatchEvent(event);
+
+            }, 300); // Match this to CSS transition duration
         } catch (error) {
             console.error('Error loading content:', error);
         }

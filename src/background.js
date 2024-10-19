@@ -30,6 +30,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 // Open the side panel when the bubble is clicked
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === 'clickSidePanel') {
-    chrome.sidePanel.open({ tabId: sender.tab.id });
+    // Ensure this is called directly in response to the user gesture
+    chrome.sidePanel.open({ tabId: sender.tab.id }).catch((error) => console.error(error));
   }
 });

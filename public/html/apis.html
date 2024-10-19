@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Management</title>
+</head>
+<body>
+    <div class="api-container">
+        <h2 class="api-title">API Management</h2>
+        <button id="addApiBtn" class="btn btn-primary mb-3">Add New API</button>
+        <div id="apiList"></div>
+    </div>
+
+    <!-- Modal for adding/editing API -->
+    <div class="modal" id="apiModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="apiModalLabel">Add/Edit API</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="apiForm">
+                        <input type="hidden" id="apiId">
+                        <div class="form-group">
+                            <label for="modelProvider">Model Provider</label>
+                            <input type="text" class="form-control" id="modelProvider" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input type="text" class="form-control" id="description" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="apiKey">API Key</label>
+                            <input type="text" class="form-control" id="apiKey" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeBtn">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveApiBtn">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

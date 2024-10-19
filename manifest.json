@@ -4,20 +4,20 @@
     "version": "0.01",
     "permissions": ["contextMenus", "activeTab", "storage", "sidePanel"],
     "background": {
-      "service_worker": "./dist/background.js",
+      "service_worker": "./src/background.js",
       "type": "module"
     },
     "content_security_policy": {
       "extension_pages": "script-src 'self'; object-src 'self'"
     },
     "web_accessible_resources": [{
-      "resources": ["public/html/*.html"],
+      "resources": ["public/html/*.html", "public/css/*.css", "public/js/*.js"],
       "matches": ["<all_urls>"]
     }],
     "content_scripts": [
         {
           "matches": ["<all_urls>"],
-          "js": ["./dist/content.js"]
+          "js": ["./src/content.js"]
         }
       ],
     "side_panel": {
