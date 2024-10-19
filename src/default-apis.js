@@ -10,20 +10,14 @@ const defaultApis = [
     {
         provider: "Anthropic",
         description: "Claude AI models for various language tasks",
-        apiKey: "bb",
+        apiKey: "????",
         dateCreated: "2023-03-22"
     },
     {
         provider: "Google",
         description: "PaLM API for text generation and analysis",
-        apiKey: "cc",
+        apiKey: "????",
         dateCreated: "2023-05-10"
-    },
-    {
-        provider: "Cohere",
-        description: "Large language models for text generation and understanding",
-        apiKey: "dd",
-        dateCreated: "2023-02-28"
     }
   ];
   

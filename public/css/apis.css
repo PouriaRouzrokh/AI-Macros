@@ -1,34 +1,49 @@
+/* Define a color palette */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --border-radius: 10px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --font-family: 'Open Sans', sans-serif;
+}
+
+/* API Container Styles */
 .api-container {
-    padding: 1px;
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    font-family: var(--font-family);
 }
 
 .api-title {
-    color: #1a237e;
+    color: var(--primary-color);
     font-size: 24px;
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
-.api-list {
-    margin-top: 20px;
-}
-
+/* API Card Styles */
 .api-card {
-    background-color: #ffffff;
+    background-color: white;
     border: 1px solid #e0e0e0;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     padding: 15px;
     margin-bottom: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
 }
 
 .api-card h3 {
-    color: #1a237e;
-    font-size: 18px;
+    color: var(--primary-color);
+    font-size: 20px;
     margin-bottom: 10px;
 }
 
 .api-card p {
-    color: #333333;
+    color: var(--text-color);
     font-size: 14px;
     margin-bottom: 5px;
 }
@@ -40,22 +55,25 @@
     border-radius: 2px;
 }
 
-.btn-add-api {
-    background-color: #1a237e;
-    color: #ffffff;
+/* Button Styles */
+.btn-add-api, .edit-btn, .delete-btn {
+    background-color: var(--primary-color);
+    color: white;
     border: none;
     padding: 10px 15px;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     cursor: pointer;
     font-size: 14px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.btn-add-api:hover {
-    background-color: #3949ab;
+.btn-add-api:hover, .edit-btn:hover, .delete-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
 }
 
-/* Modal styles */
+/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -66,27 +84,24 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.4);
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family);
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
+    background-color: white;
+    margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 500px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #000;
     text-decoration: none;
     cursor: pointer;
 }
