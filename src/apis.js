@@ -1,4 +1,4 @@
-import { defaultApis } from './default-apis.js';
+import { defaultApis } from './templates/api_templates.js';
 
 let apis = [];
 let modal;
