@@ -64,7 +64,6 @@
     border-radius: calc(var(--navbar-item-size) / 4);
     padding: 10px;
     box-shadow: var(--box-shadow);
-    marg
 }
 
 .navbar-nav {
