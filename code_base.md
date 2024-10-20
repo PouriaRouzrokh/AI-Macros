@@ -527,6 +527,176 @@ body, html {
 </div>
 ```
 
+## public/html/model_modal.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Model Modal</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body {
+                background-color: #f8f9fa;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+            .modal-content {
+                width: 90%;
+                max-width: 600px;
+                background-color: white;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .modal-header {
+                background-color: #007bff;
+                color: white;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+            }
+            .modal-title {
+                font-weight: bold;
+            }
+            .btn-close {
+                color: white;
+            }
+            .form-label {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+<body>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="modelModalLabel">Add/Edit Model</h5>
+            <button type="button" class="btn-close" id="closeBtn" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="modelForm">
+                <input type="hidden" id="modelId">
+                <div class="mb-3">
+                    <label for="modelName" class="form-label">Model Name</label>
+                    <input type="text" class="form-control" id="modelName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="description" required>
+                </div>
+                <div class="mb-3">
+                    <label for="apiName" class="form-label">API Name</label>
+                    <select class="form-select" id="apiName" required>
+                        <option value="">Select an API</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="systemPrompt" class="form-label">System Prompt</label>
+                    <textarea class="form-control" id="systemPrompt" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="curlCommand" class="form-label">Curl Command</label>
+                    <textarea class="form-control" id="curlCommand" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="responseParser" class="form-label">Response Parser</label>
+                    <input type="text" class="form-control" id="responseParser" required>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+            <button type="button" class="btn btn-primary" id="saveModelBtn">Save</button>
+        </div>
+    </div>
+
+    <script src="../../src/model_modal.js"></script>
+</body>
+</html>
+```
+
+## public/html/api_modal.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>API Modal</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body {
+                background-color: #f8f9fa;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+            .modal-content {
+                width: 90%;
+                max-width: 600px;
+                background-color: white;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .modal-header {
+                background-color: #28a745;
+                color: white;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+            }
+            .modal-title {
+                font-weight: bold;
+            }
+            .btn-close {
+                color: white;
+            }
+            .form-label {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+<body>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="apiModalLabel">Add/Edit API</h5>
+            <button type="button" class="btn-close" id="closeBtn" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="apiForm">
+                <input type="hidden" id="apiId">
+                <div class="mb-3">
+                    <label for="apiName" class="form-label">API Name</label>
+                    <input type="text" class="form-control" id="apiName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="description" required>
+                </div>
+                <div class="mb-3">
+                    <label for="apiKey" class="form-label">API Key</label>
+                    <input type="text" class="form-control" id="apiKey" required>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+            <button type="button" class="btn btn-primary" id="saveApiBtn">Save</button>
+        </div>
+    </div>
+
+    <script src="../../src/api_modal.js"></script>
+</body>
+</html>
+```
+
 ## public/html/sidepanel.html
 
 ```html
@@ -759,14 +929,10 @@ document.addEventListener('DOMContentLoaded', () => {
 ## src/background.js
 
 ```js
-// Bubble handling ---------------------------------------------------------------------------
-
-// Allows users to open the side panel by clicking on the action toolbar icon
 chrome.sidePanel
   .setPanelBehavior({ openPanelOnActionClick: true })
   .catch((error) => console.error(error));
 
-// Show/hide bubble when tab becomes active/inactive
 chrome.tabs.onActivated.addListener((activeInfo) => {
   chrome.tabs.get(activeInfo.tabId, (tab) => {
     if (tab && tab.url && tab.url.startsWith('http')) {
@@ -777,7 +943,6 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
   });
 });
 
-// Show/hide bubble when URL changes
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (changeInfo.status === 'complete' && tab && tab.url) {
     if (tab.url.startsWith('http')) {
@@ -788,14 +953,24 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   }
 });
 
-// Open the side panel when the bubble is clicked
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === 'clickSidePanel') {
-    // Ensure this is called directly in response to the user gesture
     chrome.sidePanel.open({ tabId: sender.tab.id }).catch((error) => console.error(error));
+  } else if (request.action === 'openModal') {
+    const modalUrl = chrome.runtime.getURL(`public/html/${request.modalType}_modal.html`);
+    const windowOptions = {
+      url: `${modalUrl}?data=${encodeURIComponent(JSON.stringify(request.data || {}))}`,
+      type: 'popup',
+      width: 600,
+      height: 600
+    };
+    chrome.windows.create(windowOptions, (window) => {
+      if (chrome.runtime.lastError) {
+        console.error(chrome.runtime.lastError);
+      }
+    });
   }
 });
-
 ```
 
 ## src/models.js
@@ -805,7 +980,6 @@ import { defaultModels } from './templates/model_templates.js';
 
 let models = [];
 let apis = [];
-let modal;
 
 document.addEventListener('contentLoaded', function(e) {
     if (e.detail.page === 'models') {
@@ -836,16 +1010,13 @@ function loadAPIs() {
             apis = result.apis;
         } else {
             console.log('No APIs found');
+            apis = []; // Ensure apis is always an array
         }
-        populateAPIComboBox();
     });
 }
 
 function setupEventListeners() {
-    modal = document.getElementById('modelModal');
     const addModelBtn = document.getElementById('addModelBtn');
-    const saveModelBtn = document.getElementById('saveModelBtn');
-    const closeBtn = document.getElementById('closeBtn');
     
     if (addModelBtn) {
         console.log('Add Model button found');
@@ -854,31 +1025,6 @@ function setupEventListeners() {
         console.error('Add Model button not found');
     }
     
-    if (saveModelBtn) {
-        saveModelBtn.addEventListener('click', saveModel);
-    } else {
-        console.error('Save Model button not found');
-    }
-
-    if (closeBtn) {
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = "none";
-        });
-    }
-    
-    const span = document.querySelector('.close');
-    if (span) {
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-
     // Listen for API updates
     document.addEventListener('apisUpdated', function() {
         loadAPIs();
@@ -918,47 +1064,21 @@ function renderModelList() {
     });
 }
 
-function populateAPIComboBox() {
-    const apiSelect = document.getElementById('apiName');
-    if (!apiSelect) return;
-
-    // Clear existing options
-    apiSelect.innerHTML = '<option value="">Select an API</option>';
-
-    // Add options for each API
-    apis.forEach(api => {
-        const option = document.createElement('option');
-        option.value = api.name;
-        option.textContent = api.name;
-        apiSelect.appendChild(option);
-    });
-}
-
 function addModel() {
-    if (!modal) {
-        console.error('Modal element not found');
-        return;
-    }
-    document.getElementById('modelId').value = '';
-    document.getElementById('modelForm').reset();
-    document.getElementById('modelModalLabel').textContent = 'Add New Model';
-    populateAPIComboBox();
-    modal.style.display = "block";
-    console.log('Add Model modal opened');
+    chrome.runtime.sendMessage({
+        action: 'openModal',
+        modalType: 'model',
+        data: { apis: apis }
+    });
 }
 
 function editModel(index) {
     const model = models[index];
-    document.getElementById('modelId').value = index;
-    document.getElementById('modelName').value = model.name;
-    document.getElementById('description').value = model.description;
-    document.getElementById('apiName').value = model.apiName;
-    document.getElementById('systemPrompt').value = model.systemPrompt;
-    document.getElementById('curlCommand').value = model.curl_command;
-    document.getElementById('responseParser').value = model.responseParser;
-    document.getElementById('modelModalLabel').textContent = 'Edit Model';
-    populateAPIComboBox();
-    modal.style.display = "block";
+    chrome.runtime.sendMessage({
+        action: 'openModal',
+        modalType: 'model',
+        data: { model, index, apis: apis }
+    });
 }
 
 function deleteModel(index) {
@@ -969,28 +1089,126 @@ function deleteModel(index) {
     }
 }
 
-function saveModel() {
-    const id = document.getElementById('modelId').value;
-    const model = {
-        name: document.getElementById('modelName').value,
-        description: document.getElementById('description').value,
-        apiName: document.getElementById('apiName').value,
-        systemPrompt: document.getElementById('systemPrompt').value,
-        curl_command: document.getElementById('curlCommand').value,
-        responseParser: document.getElementById('responseParser').value,
-        dateCreated: id === '' ? new Date().toISOString().split('T')[0] : models[parseInt(id)].dateCreated
-    };
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.action === 'saveModel') {
+        const { model, index } = request.data;
+        if (index === undefined) {
+            models.push(model);
+        } else {
+            models[index] = model;
+        }
+        saveModels();
+        renderModelList();
+    }
+});
+```
 
-    if (id === '') {
-        models.push(model);
-    } else {
-        models[parseInt(id)] = model;
+## src/model_modal.js
+
+```js
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const modelData = JSON.parse(decodeURIComponent(urlParams.get('data')));
+    const apis = modelData.apis;
+    let modelIndex = modelData.index;
+
+    const form = document.getElementById('modelForm');
+    const apiSelect = document.getElementById('apiName');
+    const closeBtn = document.getElementById('closeBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const saveBtn = document.getElementById('saveModelBtn');
+
+    // Populate API select options
+    apis.forEach(api => {
+        const option = document.createElement('option');
+        option.value = api.name;
+        option.textContent = api.name;
+        apiSelect.appendChild(option);
+    });
+
+    // If editing, populate form with existing data
+    if (modelData.model) {
+        document.getElementById('modelId').value = modelIndex;
+        document.getElementById('modelName').value = modelData.model.name;
+        document.getElementById('description').value = modelData.model.description;
+        document.getElementById('apiName').value = modelData.model.apiName;
+        document.getElementById('systemPrompt').value = modelData.model.systemPrompt;
+        document.getElementById('curlCommand').value = modelData.model.curl_command;
+        document.getElementById('responseParser').value = modelData.model.responseParser;
     }
 
-    saveModels();
-    renderModelList();
-    modal.style.display = "none";
-}
+    closeBtn.addEventListener('click', () => window.close());
+    cancelBtn.addEventListener('click', () => window.close());
+
+    saveBtn.addEventListener('click', () => {
+        if (form.checkValidity()) {
+            const model = {
+                name: document.getElementById('modelName').value,
+                description: document.getElementById('description').value,
+                apiName: document.getElementById('apiName').value,
+                systemPrompt: document.getElementById('systemPrompt').value,
+                curl_command: document.getElementById('curlCommand').value,
+                responseParser: document.getElementById('responseParser').value,
+                dateCreated: modelData.model ? modelData.model.dateCreated : new Date().toISOString().split('T')[0]
+            };
+
+            chrome.runtime.sendMessage({
+                action: 'saveModel',
+                data: { model, index: modelIndex }
+            });
+
+            window.close();
+        } else {
+            form.reportValidity();
+        }
+    });
+});
+```
+
+## src/api_modal.js
+
+```js
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const apiData = JSON.parse(decodeURIComponent(urlParams.get('data')));
+    let apiIndex = apiData.index;
+
+    const form = document.getElementById('apiForm');
+    const closeBtn = document.getElementById('closeBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const saveBtn = document.getElementById('saveApiBtn');
+
+    // If editing, populate form with existing data
+    if (apiData.api) {
+        document.getElementById('apiId').value = apiIndex;
+        document.getElementById('apiName').value = apiData.api.name;
+        document.getElementById('description').value = apiData.api.description;
+        document.getElementById('apiKey').value = apiData.api.apiKey;
+    }
+
+    closeBtn.addEventListener('click', () => window.close());
+    cancelBtn.addEventListener('click', () => window.close());
+
+    saveBtn.addEventListener('click', () => {
+        if (form.checkValidity()) {
+            const api = {
+                name: document.getElementById('apiName').value,
+                description: document.getElementById('description').value,
+                apiKey: document.getElementById('apiKey').value,
+                dateCreated: apiData.api ? apiData.api.dateCreated : new Date().toISOString().split('T')[0]
+            };
+
+            chrome.runtime.sendMessage({
+                action: 'saveAPI',
+                data: { api, index: apiIndex }
+            });
+
+            window.close();
+        } else {
+            form.reportValidity();
+        }
+    });
+});
 ```
 
 ## src/apis.js
@@ -999,7 +1217,6 @@ function saveModel() {
 import { defaultApis } from './templates/api_templates.js';
 
 let apis = [];
-let modal;
 
 document.addEventListener('contentLoaded', function(e) {
     if (e.detail.page === 'apis') {
@@ -1025,40 +1242,12 @@ function loadAPIs() {
 
 function setupEventListeners() {
     const addApiBtn = document.getElementById('addApiBtn');
-    const saveApiBtn = document.getElementById('saveApiBtn');
-    const closeBtn = document.getElementById('closeBtn');
-    modal = document.getElementById('apiModal');
     
     if (addApiBtn) {
         console.log('Add API button found');
         addApiBtn.addEventListener('click', addAPI);
     } else {
         console.error('Add API button not found');
-    }
-    
-    if (saveApiBtn) {
-        saveApiBtn.addEventListener('click', saveAPI);
-    } else {
-        console.error('Save API button not found');
-    }
-
-    if (closeBtn) {
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = "none";
-        });
-    }
-    
-    const span = document.querySelector('.close');
-    if (span) {
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
     }
 }
 
@@ -1102,25 +1291,20 @@ function renderAPIList() {
 }
 
 function addAPI() {
-    if (!modal) {
-        console.error('Modal element not found');
-        return;
-    }
-    document.getElementById('apiId').value = '';
-    document.getElementById('apiForm').reset();
-    document.getElementById('apiModalLabel').textContent = 'Add New API';
-    modal.style.display = "block";
-    console.log('Add API modal opened');
+    chrome.runtime.sendMessage({
+        action: 'openModal',
+        modalType: 'api',
+        data: {}
+    });
 }
 
 function editAPI(index) {
     const api = apis[index];
-    document.getElementById('apiId').value = index;
-    document.getElementById('apiName').value = api.name;
-    document.getElementById('description').value = api.description;
-    document.getElementById('apiKey').value = api.apiKey;
-    document.getElementById('apiModalLabel').textContent = 'Edit API';
-    modal.style.display = "block";
+    chrome.runtime.sendMessage({
+        action: 'openModal',
+        modalType: 'api',
+        data: { api, index }
+    });
 }
 
 function deleteAPI(index) {
@@ -1131,25 +1315,18 @@ function deleteAPI(index) {
     }
 }
 
-function saveAPI() {
-    const id = document.getElementById('apiId').value;
-    const api = {
-        name: document.getElementById('apiName').value,
-        description: document.getElementById('description').value,
-        apiKey: document.getElementById('apiKey').value,
-        dateCreated: id === '' ? new Date().toISOString().split('T')[0] : apis[parseInt(id)].dateCreated
-    };
-
-    if (id === '') {
-        apis.push(api);
-    } else {
-        apis[parseInt(id)] = api;
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.action === 'saveAPI') {
+        const { api, index } = request.data;
+        if (index === undefined) {
+            apis.push(api);
+        } else {
+            apis[index] = api;
+        }
+        saveAPIs();
+        renderAPIList();
     }
-
-    saveAPIs();
-    renderAPIList();
-    modal.style.display = "none";
-}
+});
 ```
 
 ## src/content.js

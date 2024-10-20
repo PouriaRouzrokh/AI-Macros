@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
-    const modelDataString = urlParams.get('data');
-    const modelData = modelDataString ? JSON.parse(decodeURIComponent(modelDataString)) : {};
-    const apis = modelData.apis || [];
+    const modelData = JSON.parse(decodeURIComponent(urlParams.get('data')));
+    const apis = modelData.apis;
     let modelIndex = modelData.index;
 
     const form = document.getElementById('modelForm');

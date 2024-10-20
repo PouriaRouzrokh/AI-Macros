@@ -29,7 +29,9 @@
     {
       "resources": [
         "public/html/model_modal.html",
-        "public/html/api_modal.html"
+        "public/html/api_modal.html",
+        "src/model_modal.js",
+        "src/api_modal.js"
       ],
       "matches": ["<all_urls>"]
     }

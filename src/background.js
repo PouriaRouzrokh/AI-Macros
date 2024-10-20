@@ -31,7 +31,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       url: `${modalUrl}?data=${encodeURIComponent(JSON.stringify(request.data || {}))}`,
       type: 'popup',
       width: 600,
-      height: 600
+      height: 700
     };
     chrome.windows.create(windowOptions, (window) => {
       if (chrome.runtime.lastError) {
