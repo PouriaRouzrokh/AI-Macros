@@ -559,6 +559,20 @@ body {
 
 ```
 
+## public/html/home.html
+
+```html
+<html>  </html>
+<head>
+    <title>AI Macros Home</title>
+</head>
+<body>
+    <h1 style="text-align: center; font-size: 30px; margin-top: 20px; margin-bottom: 20px; font-weight: bold; color: #007bff;">Welcome to AI Macros!</h1>
+    <h2 style="text-align: center; font-size: 100px; color: #007bff;"><i class="bi bi-robot"></i></h2>
+</body>
+
+```
+
 ## public/html/apis.html
 
 ```html
@@ -567,11 +581,11 @@ body {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Management</title>
+    <title>API Keys</title>
 </head>
 <body>
     <div class="api-container">
-        <h2 class="api-title">API Management</h2>
+        <h2 class="api-title">API Keys</h2>
         <button id="addApiBtn" class="btn btn-primary mb-3">Add New API</button>
         <div id="apiList"></div>
     </div>
@@ -685,12 +699,6 @@ body {
 
 ```
 
-## public/html/options.html
-
-```html
-
-```
-
 ## public/html/api_modal.html
 
 ```html
@@ -749,7 +757,7 @@ body {
     <title>AI Macros Sidepanel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/sidepanel.css">
 </head>
 <body>
@@ -759,8 +767,8 @@ body {
                 <nav class="navbar navbar-expand">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#" data-page="apply" data-text="Apply">
-                                <i class="bi bi-lightning-fill icon"></i>
+                            <a class="nav-link" href="#" data-page="macros" data-text="Macros">
+                                <i class="bi bi-rewind-circle-fill icon"></i>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -769,8 +777,8 @@ body {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-page="macros" data-text="Macros">
-                                <i class="bi bi-tools icon"></i>
+                            <a class="nav-link" href="#" data-page="agents" data-text="Agents">
+                                <i class="bi bi-robot icon"></i>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -779,13 +787,13 @@ body {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-page="apis" data-text="API Keys">
-                                <i class="bi bi-plug icon"></i>
+                            <a class="nav-link" href="#" data-page="apis" data-text="APIs">
+                                <i class="bi bi-key-fill icon"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-page="options" data-text="Options">
-                                <i class="bi bi-gear icon"></i>
+                            <a class="nav-link" href="#" data-page="home" data-text="Home">
+                                <i class="bi bi-house-gear-fill icon"></i>
                             </a>
                         </li>
                     </ul>
@@ -823,7 +831,7 @@ body {
 </head>
 <body>
     <div class="model-container">
-        <h2 class="model-title">Model Management</h2>
+        <h2 class="model-title">Model Set </h2>
         <button id="addModelBtn" class="btn btn-primary mb-3">Add New Model</button>
         <div id="modelList"></div>
     </div>
@@ -970,7 +978,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Load initial content (e.g., 'apply' page)
-    loadContent('apply');
+    const initial_page = 'home';
+    loadContent(initial_page);
+    document.querySelector('.nav-link[data-page="' + initial_page + '"]').classList.add('active');
 });
 ```
 

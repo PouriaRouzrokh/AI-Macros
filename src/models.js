@@ -95,7 +95,7 @@ function renderModelList() {
 function addModel() {
     chrome.runtime.sendMessage({
         action: 'openModal',
-        modalType: 'models',
+        modalType: 'model',
         data: { apis: apis }
     });
 }
@@ -104,7 +104,7 @@ function editModel(index) {
     const model = models[index];
     chrome.runtime.sendMessage({
         action: 'openModal',
-        modalType: 'models',
+        modalType: 'model',
         data: { model, index, apis: apis }
     });
 }
