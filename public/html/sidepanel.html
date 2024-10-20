@@ -9,55 +9,61 @@
     <link rel="stylesheet" href="../css/sidepanel.css">
 </head>
 <body>
-    <section>
-        <div class="container-fluid d-flex justify-content-center mt-2">
-            <nav class="navbar navbar-expand">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#" data-page="apply" data-text="Apply">
-                            <i class="bi bi-lightning-fill icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-page="chat" data-text="Chat">
-                            <i class="bi bi-chat-dots icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-page="macros" data-text="Macros">
-                            <i class="bi bi-tools icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-page="models" data-text="Models">
-                            <i class="bi bi-cpu icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-page="apis" data-text="API Keys">
-                            <i class="bi bi-plug icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-page="more" data-text="More">
-                            <i class="bi bi-stars icon"></i>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </section>
-    <section class="content-section">
-        <div id="content-container" class="content-container">
-            <!-- Dynamic content will be loaded here -->
-        </div>
-    </section>
+    <div class="main-container">
+        <section class="navbar-section">
+            <div class="container-fluid d-flex justify-content-center mt-2">
+                <nav class="navbar navbar-expand">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-page="apply" data-text="Apply">
+                                <i class="bi bi-lightning-fill icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="chat" data-text="Chat">
+                                <i class="bi bi-chat-dots icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="macros" data-text="Macros">
+                                <i class="bi bi-tools icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="models" data-text="Models">
+                                <i class="bi bi-cpu icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="apis" data-text="API Keys">
+                                <i class="bi bi-plug icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="more" data-text="More">
+                                <i class="bi bi-stars icon"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+        <section class="content-section">
+            <div id="content-container" class="content-container">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </section>
+    </div>
 
     <script src="../../libs/bootstrap.bundle.min.js"></script>
     <script src="../../src/sidepanel.js"></script>
     <script src="../../src/apis.js" type="module"></script>
     <script src="../../src/templates/personal_apis.js" type="module"></script>
     <script src="../../src/templates/api_templates.js" type="module"></script>
+    <script src="../../src/models.js" type="module"></script>
+    <script src="../../src/templates/model_templates.js" type="module"></script>
+    <script src="../../src/model_modal.js" type="module"></script>
+    <script src="../../src/api_modal.js" type="module"></script>
 
 </body>
 </html>

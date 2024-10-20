@@ -54,6 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     script.src = chrome.runtime.getURL('../src/apis.js');
                     script.type = 'module';
                     document.body.appendChild(script);
+                } else if (page === 'models') {
+                    const script = document.createElement('script');
+                    script.src = chrome.runtime.getURL('../src/models.js');
+                    script.type = 'module';
+                    document.body.appendChild(script);
                 }
 
                 // Dispatch a custom event when content is loaded

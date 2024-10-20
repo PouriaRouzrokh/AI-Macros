@@ -1,272 +1,117 @@
 ## public/css/apply.css
 
 ```css
-/* Custom styles for the Apply page */
-#apply-container .apply-title {
-    color: #4a90e2;
-    font-size: 24px;
-    margin-bottom: 20px;
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --border-radius: 10px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --font-family: 'Open Sans', sans-serif;
 }
 
-#apply-container .input-selection {
-    margin-bottom: 20px;
-}
-
-#apply-container .macro-selection {
-    margin-top: 20px;
-}
-
-/* Add more custom styles as needed */
-```
-
-## public/css/macros.css
-
-```css
-/* Custom styles for the Build page */
-.build-container {
+/* Apply styles to the Apply page */
+#apply-container {
+    background-color: var(--background-color);
     padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    font-family: var(--font-family);
 }
 
-.build-title {
-    color: #4caf50;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
+.apply-title {
+    color: var(--primary-color);
+    font-size: 28px;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 
-.form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
+.input-selection,
+.macro-selection {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
-textarea.form-control {
-    resize: vertical;
-    min-height: 100px;
-}
-
-select.form-control {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
-    background-repeat: no-repeat;
-    background-position-x: 98%;
-    background-position-y: 50%;
-}
-
-.btn-primary {
-    background-color: #4caf50;
+button {
+    background-color: var(--primary-color);
     color: white;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border: none;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #45a049;
-}
-```
-
-## public/css/navbar.css
-
-```css
-:root {
-    --navbar-scale: 0.6;
-    --navbar-item-size: calc(70px * var(--navbar-scale));
-    --navbar-font-size: calc(14px * var(--navbar-scale));
-    --navbar-icon-size: calc(24px * var(--navbar-scale));
-}
-.navbar {
-    background-color: #1a237e !important;
-    border-radius: calc(var(--navbar-item-size) / 4);
-    padding: 0;
-}
-.navbar-nav {
-    display: flex;
-    flex-direction: row;
-}
-.nav-item {
-    width: var(--navbar-item-size);
-    height: var(--navbar-item-size);
-}
-.nav-link {
-    color: white !important;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    padding: 0;
-}
-.nav-link:hover .icon {
-    transform: translateY(-100%);
-}
-.nav-link:hover::after {
-    transform: translateY(0);
-}
-.nav-link::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: lightblue;
-    color: #1a237e;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: var(--navbar-font-size);
-    transform: translateY(100%);
-    transition: transform 0.4s ease-out;
-}
-.icon {
-    font-size: var(--navbar-icon-size);
-    transition: transform 0.4s ease-out;
-}
-```
-
-## public/css/apis.css
-
-```css
-.api-container {
-    padding: 1px;
-}
-
-.api-title {
-    color: #1a237e;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.api-list {
-    margin-top: 20px;
-}
-
-.api-card {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    padding: 15px;
-    margin-bottom: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.api-card h3 {
-    color: #1a237e;
-    font-size: 18px;
-    margin-bottom: 10px;
+button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
 }
 
-.api-card p {
-    color: #333333;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
+/* Add more custom styles as needed */
 
-.api-key {
-    font-family: monospace;
-    background-color: #f5f5f5;
-    padding: 2px 4px;
-    border-radius: 2px;
-}
-
-.btn-add-api {
-    background-color: #1a237e;
-    color: #ffffff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-}
-
-.btn-add-api:hover {
-    background-color: #3949ab;
-}
-
-/* Modal styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
 ```
 
-## public/css/content-container.css
+## public/css/sidepanel.css
 
 ```css
+:root {
+    --navbar-scale: 0.7;
+    --navbar-item-size: calc(80px * var(--navbar-scale));
+    --navbar-font-size: calc(16px * var(--navbar-scale));
+    --navbar-icon-size: calc(28px * var(--navbar-scale));
+    --secondary-color: #1a237e;
+    --primary-color: #4a90e2;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --accent-color: #e74c3c;
+    --active-color: lightblue;
+    --background-color: #f0f4f8;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--background-color);
+}
+
+.navbar-section {
+    padding: 10px 0;
+}
+
 .content-section {
-    padding: 10px;
-    background-color: #f0f4f8;
-    height: 90vh;
+    flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     overflow: hidden;
     position: relative;
+    padding: 10px;
 }
 
 .content-container {
     background-color: white;
-    border-radius: 8px;
+    border-radius: 0px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 15px;
     width: 95%;
     max-width: 800px;
-    height: calc(95% - 20px);
-    margin-top: 20px;
+    height: calc(100% - 20px);
     transition: all 0.3s ease-in-out;
     position: absolute;
-    top: 5px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
     overflow-y: auto;
@@ -292,6 +137,317 @@ select.form-control {
     opacity: 0;
     transform: translateX(calc(-50% - 20px));
 }
+
+.navbar {
+    background-color: var(--primary-color) !important;
+    /* border-radius: calc(var(--navbar-item-size) / 4); */
+    border-radius: 0px;
+    padding: 0px 5px 0px 5px;
+    box-shadow: var(--box-shadow);
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-item {
+    width: var(--navbar-item-size);
+    height: var(--navbar-item-size);
+    transition: transform 0.3s ease;
+}
+
+.nav-link {
+    color: white !important;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link.active {
+    border-bottom: 3px solid var(--accent-color);
+    transform: scale(1.05);
+}
+
+.nav-link:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.0);
+}
+
+.nav-link:hover .icon {
+    transform: translateY(-100%);
+}
+
+.nav-link:hover::after {
+    transform: translateY(0);
+}
+
+.nav-link::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: lightblue;
+    color: #1a237e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: var(--navbar-font-size);
+    transform: translateY(100%);
+    transition: transform 0.4s ease-out;
+}
+
+.icon {
+    font-size: var(--navbar-icon-size);
+    transition: transform 0.4s ease-out;
+}
+
+
+```
+
+## public/css/models.css
+
+```css
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --border-radius: 10px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --font-family: 'Open Sans', sans-serif;
+}
+
+.model-container {
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    font-family: var(--font-family);
+}
+
+.model-title {
+    color: var(--primary-color);
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.model-card {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: var(--box-shadow);
+}
+
+.model-card h3 {
+    color: var(--primary-color);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.model-card p {
+    color: var(--text-color);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.btn-add-model, .edit-btn, .delete-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-add-model:hover, .edit-btn:hover, .delete-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family);
+}
+
+.modal-content {
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+```
+
+## public/css/apis.css
+
+```css
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --border-radius: 10px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --font-family: 'Open Sans', sans-serif;
+}
+
+/* API Container Styles */
+.api-container {
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    font-family: var(--font-family);
+}
+
+.api-title {
+    color: var(--primary-color);
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* API Card Styles */
+.api-card {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: var(--box-shadow);
+}
+
+.api-card h3 {
+    color: var(--primary-color);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.api-card p {
+    color: var(--text-color);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.api-key {
+    font-family: monospace;
+    background-color: #f5f5f5;
+    padding: 2px 4px;
+    border-radius: 2px;
+}
+
+/* Button Styles */
+.btn-add-api, .edit-btn, .delete-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-add-api:hover, .edit-btn:hover, .delete-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family);
+}
+
+.modal-content {
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 ```
 
 ## public/html/apis.html
@@ -317,16 +473,13 @@ select.form-control {
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="apiModalLabel">Add/Edit API</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
                 <div class="modal-body">
                     <form id="apiForm">
                         <input type="hidden" id="apiId">
                         <div class="form-group">
-                            <label for="modelProvider">Model Provider</label>
-                            <input type="text" class="form-control" id="modelProvider" required>
+                            <label for="apiName">API Name</label>
+                            <input type="text" class="form-control" id="apiName" required>
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
@@ -374,61 +527,6 @@ select.form-control {
 </div>
 ```
 
-## public/html/macros.html
-
-```html
-<div class="build-container">
-    <h2 class="build-title">Build Custom Macro</h2>
-    <form id="build-macro-form">
-        <div class="form-group">
-            <label for="macroName">Macro Name</label>
-            <input type="text" class="form-control" id="macroName" name="macroName" placeholder="Enter macro name" required>
-        </div>
-        <div class="form-group">
-            <label for="macroDescription">Description</label>
-            <textarea class="form-control" id="macroDescription" name="macroDescription" rows="3" placeholder="Describe your macro" required></textarea>
-        </div>
-        <div class="form-group">
-            <label for="promptTemplate">Prompt Template</label>
-            <textarea class="form-control" id="promptTemplate" name="promptTemplate" rows="5" placeholder="Enter your prompt template" required></textarea>
-        </div>
-        <div class="form-group">
-            <label for="defaultModel">Default Model</label>
-            <select class="form-control" id="defaultModel" name="defaultModel" required>
-                <option value="">Choose a model</option>
-                <option value="openai">OpenAI</option>
-                <option value="anthropic">Anthropic</option>
-                <option value="gemini">Gemini</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="inputType">Input Type</label>
-            <select class="form-control" id="inputType" name="inputType" required>
-                <option value="">Select input type</option>
-                <option value="text">Selected Text</option>
-                <option value="image">Selected Image</option>
-                <option value="clipboard">Clipboard</option>
-                <option value="page">Entire Page</option>
-                <option value="voice">Voice Input</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Create Macro</button>
-    </form>
-</div>
-
-<script>
-document.getElementById('build-macro-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    const macroData = Object.fromEntries(formData.entries());
-    console.log('Macro Data:', macroData);
-    // Here you would typically send this data to your background script or API
-    alert('Macro created successfully!');
-    this.reset();
-});
-</script>
-```
-
 ## public/html/sidepanel.html
 
 ```html
@@ -440,60 +538,129 @@ document.getElementById('build-macro-form').addEventListener('submit', function(
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/content-container.css">
+    <link rel="stylesheet" href="../css/sidepanel.css">
 </head>
 <body>
-    <section>
-        <div class="container-fluid d-flex justify-content-center mt-2">
-            <nav class="navbar navbar-expand">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-page="apply" data-text="Apply">
-                            <i class="bi bi-lightning-fill icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-page="chat" data-text="Chat">
-                            <i class="bi bi-chat-dots icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-page="macros" data-text="Macros">
-                            <i class="bi bi-tools icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-page="models" data-text="Models">
-                            <i class="bi bi-cpu icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-page="apis" data-text="API Keys">
-                            <i class="bi bi-plug icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-page="extras" data-text="Extras">
-                            <i class="bi bi-stars icon"></i>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </section>
-    <section class="content-section">
-        <div id="content-container" class="content-container">
-            <!-- Dynamic content will be loaded here -->
-        </div>
-    </section>
+    <div class="main-container">
+        <section class="navbar-section">
+            <div class="container-fluid d-flex justify-content-center mt-2">
+                <nav class="navbar navbar-expand">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-page="apply" data-text="Apply">
+                                <i class="bi bi-lightning-fill icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="chat" data-text="Chat">
+                                <i class="bi bi-chat-dots icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="macros" data-text="Macros">
+                                <i class="bi bi-tools icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="models" data-text="Models">
+                                <i class="bi bi-cpu icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="apis" data-text="API Keys">
+                                <i class="bi bi-plug icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="more" data-text="More">
+                                <i class="bi bi-stars icon"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+        <section class="content-section">
+            <div id="content-container" class="content-container">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </section>
+    </div>
 
     <script src="../../libs/bootstrap.bundle.min.js"></script>
     <script src="../../src/sidepanel.js"></script>
     <script src="../../src/apis.js" type="module"></script>
-    <script src="../../src/personal_apis.js" type="module"></script>
-    <script src="../../src/default-apis.js" type="module"></script>
+    <script src="../../src/templates/personal_apis.js" type="module"></script>
+    <script src="../../src/templates/api_templates.js" type="module"></script>
+    <script src="../../src/models.js" type="module"></script>
+    <script src="../../src/templates/model_templates.js" type="module"></script>
 
+</body>
+</html>
+```
+
+## public/html/models.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Management</title>
+</head>
+<body>
+    <div class="model-container">
+        <h2 class="model-title">Model Management</h2>
+        <button id="addModelBtn" class="btn btn-primary mb-3">Add New Model</button>
+        <div id="modelList"></div>
+    </div>
+
+    <!-- Modal for adding/editing Model -->
+    <div class="modal" id="modelModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modelModalLabel">Add/Edit Model</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="modelForm">
+                        <input type="hidden" id="modelId">
+                        <div class="form-group">
+                            <label for="modelName">Model Name</label>
+                            <input type="text" class="form-control" id="modelName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input type="text" class="form-control" id="description" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="apiName">API Name</label>
+                            <select class="form-control" id="apiName" required>
+                                <option value="">Select an API</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="systemPrompt">System Prompt</label>
+                            <textarea class="form-control" id="systemPrompt" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="curlCommand">Curl Command</label>
+                            <textarea class="form-control" id="curlCommand" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="responseParser">Response Parser</label>
+                            <input type="text" class="form-control" id="responseParser" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeBtn">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveModelBtn">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 ```
@@ -557,6 +724,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     script.src = chrome.runtime.getURL('../src/apis.js');
                     script.type = 'module';
                     document.body.appendChild(script);
+                } else if (page === 'models') {
+                    const script = document.createElement('script');
+                    script.src = chrome.runtime.getURL('../src/models.js');
+                    script.type = 'module';
+                    document.body.appendChild(script);
                 }
 
                 // Dispatch a custom event when content is loaded
@@ -572,6 +744,8 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
+            navLinks.forEach(nav => nav.classList.remove('active'));
+            link.classList.add('active');
             const page = link.getAttribute('data-page');
             loadContent(page);
         });
@@ -624,52 +798,212 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 ```
 
-## src/default-apis.js
+## src/models.js
 
 ```js
-import { OPENAI_API_KEY } from './personal_apis.js';
+import { defaultModels } from './templates/model_templates.js';
 
-const defaultApis = [
-    {
-        provider: "OpenAI",
-        description: "GPT-3.5 and GPT-4 models for natural language processing",
-        apiKey: OPENAI_API_KEY,
-        dateCreated: "2023-01-15"
-    },
-    {
-        provider: "Anthropic",
-        description: "Claude AI models for various language tasks",
-        apiKey: "bb",
-        dateCreated: "2023-03-22"
-    },
-    {
-        provider: "Google",
-        description: "PaLM API for text generation and analysis",
-        apiKey: "cc",
-        dateCreated: "2023-05-10"
-    },
-    {
-        provider: "Cohere",
-        description: "Large language models for text generation and understanding",
-        apiKey: "dd",
-        dateCreated: "2023-02-28"
+let models = [];
+let apis = [];
+let modal;
+
+document.addEventListener('contentLoaded', function(e) {
+    if (e.detail.page === 'models') {
+        console.log('Model page loaded');
+        loadModels();
+        loadAPIs();
+        setupEventListeners();
     }
-  ];
-  
-  export { defaultApis };
+});
+
+function loadModels() {
+    console.log('Loading Models...');
+    chrome.storage.local.get(['models'], function(result) {
+        if (result.models && result.models.length > 0) {
+            models = result.models;
+        } else {
+            models = defaultModels;
+            saveModels();
+        }
+        console.log('Models loaded:', models);
+        renderModelList();
+    });
+}
+
+function loadAPIs() {
+    chrome.storage.sync.get(['apis'], function(result) {
+        if (result.apis && result.apis.length > 0) {
+            apis = result.apis;
+        } else {
+            console.log('No APIs found');
+        }
+        populateAPIComboBox();
+    });
+}
+
+function setupEventListeners() {
+    modal = document.getElementById('modelModal');
+    const addModelBtn = document.getElementById('addModelBtn');
+    const saveModelBtn = document.getElementById('saveModelBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    
+    if (addModelBtn) {
+        console.log('Add Model button found');
+        addModelBtn.addEventListener('click', addModel);
+    } else {
+        console.error('Add Model button not found');
+    }
+    
+    if (saveModelBtn) {
+        saveModelBtn.addEventListener('click', saveModel);
+    } else {
+        console.error('Save Model button not found');
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = "none";
+        });
+    }
+    
+    const span = document.querySelector('.close');
+    if (span) {
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // Listen for API updates
+    document.addEventListener('apisUpdated', function() {
+        loadAPIs();
+    });
+}
+
+function saveModels() {
+    chrome.storage.local.set({models: models}, function() {
+        console.log('Models saved');
+    });
+}
+
+function renderModelList() {
+    const modelList = document.getElementById('modelList');
+    if (!modelList) return;
+
+    modelList.innerHTML = '';
+    models.forEach((model, index) => {
+        const card = document.createElement('div');
+        card.className = 'model-card';
+        card.innerHTML = `
+            <h3>${model.name}</h3>
+            <p>${model.description}</p>
+            <p><small>Created: ${model.dateCreated}</small></p>
+            <p>API: ${model.apiName}</p>
+            <button class="btn btn-sm btn-primary edit-btn" data-index="${index}">Edit</button>
+            <button class="btn btn-sm btn-danger delete-btn" data-index="${index}">Delete</button>
+        `;
+        modelList.appendChild(card);
+    });
+
+    document.querySelectorAll('.edit-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => editModel(e.target.dataset.index));
+    });
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => deleteModel(e.target.dataset.index));
+    });
+}
+
+function populateAPIComboBox() {
+    const apiSelect = document.getElementById('apiName');
+    if (!apiSelect) return;
+
+    // Clear existing options
+    apiSelect.innerHTML = '<option value="">Select an API</option>';
+
+    // Add options for each API
+    apis.forEach(api => {
+        const option = document.createElement('option');
+        option.value = api.name;
+        option.textContent = api.name;
+        apiSelect.appendChild(option);
+    });
+}
+
+function addModel() {
+    if (!modal) {
+        console.error('Modal element not found');
+        return;
+    }
+    document.getElementById('modelId').value = '';
+    document.getElementById('modelForm').reset();
+    document.getElementById('modelModalLabel').textContent = 'Add New Model';
+    populateAPIComboBox();
+    modal.style.display = "block";
+    console.log('Add Model modal opened');
+}
+
+function editModel(index) {
+    const model = models[index];
+    document.getElementById('modelId').value = index;
+    document.getElementById('modelName').value = model.name;
+    document.getElementById('description').value = model.description;
+    document.getElementById('apiName').value = model.apiName;
+    document.getElementById('systemPrompt').value = model.systemPrompt;
+    document.getElementById('curlCommand').value = model.curl_command;
+    document.getElementById('responseParser').value = model.responseParser;
+    document.getElementById('modelModalLabel').textContent = 'Edit Model';
+    populateAPIComboBox();
+    modal.style.display = "block";
+}
+
+function deleteModel(index) {
+    if (confirm('Are you sure you want to delete this Model?')) {
+        models.splice(index, 1);
+        saveModels();
+        renderModelList();
+    }
+}
+
+function saveModel() {
+    const id = document.getElementById('modelId').value;
+    const model = {
+        name: document.getElementById('modelName').value,
+        description: document.getElementById('description').value,
+        apiName: document.getElementById('apiName').value,
+        systemPrompt: document.getElementById('systemPrompt').value,
+        curl_command: document.getElementById('curlCommand').value,
+        responseParser: document.getElementById('responseParser').value,
+        dateCreated: id === '' ? new Date().toISOString().split('T')[0] : models[parseInt(id)].dateCreated
+    };
+
+    if (id === '') {
+        models.push(model);
+    } else {
+        models[parseInt(id)] = model;
+    }
+
+    saveModels();
+    renderModelList();
+    modal.style.display = "none";
+}
 ```
 
 ## src/apis.js
 
 ```js
-import { defaultApis } from './default-apis.js';
+import { defaultApis } from './templates/api_templates.js';
 
 let apis = [];
 let modal;
 
 document.addEventListener('contentLoaded', function(e) {
     if (e.detail.page === 'apis') {
-        console.log('APIs page loaded');
+        console.log('API page loaded');
         loadAPIs();
     }
 });
@@ -708,14 +1042,12 @@ function setupEventListeners() {
         console.error('Save API button not found');
     }
 
-    // When the user clicks on the close button, close the modal
     if (closeBtn) {
         closeBtn.addEventListener('click', function() {
             modal.style.display = "none";
         });
     }
     
-    // When the user clicks on <span> (x), close the modal
     const span = document.querySelector('.close');
     if (span) {
         span.onclick = function() {
@@ -723,7 +1055,6 @@ function setupEventListeners() {
         }
     }
 
-    // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
@@ -734,7 +1065,13 @@ function setupEventListeners() {
 function saveAPIs() {
     chrome.storage.sync.set({apis: apis}, function() {
         console.log('APIs saved');
+        updateModelForm();
     });
+}
+
+function updateModelForm() {
+    const event = new CustomEvent('apisUpdated');
+    document.dispatchEvent(event);
 }
 
 function renderAPIList() {
@@ -746,7 +1083,7 @@ function renderAPIList() {
         const card = document.createElement('div');
         card.className = 'api-card';
         card.innerHTML = `
-            <h3>${api.provider}</h3>
+            <h3>${api.name}</h3>
             <p>${api.description}</p>
             <p><small>Created: ${api.dateCreated}</small></p>
             <p>API Key: <span class="api-key">****${api.apiKey.slice(-4)}</span></p>
@@ -756,7 +1093,6 @@ function renderAPIList() {
         apiList.appendChild(card);
     });
 
-    // Add event listeners for edit and delete buttons
     document.querySelectorAll('.edit-btn').forEach(btn => {
         btn.addEventListener('click', (e) => editAPI(e.target.dataset.index));
     });
@@ -780,7 +1116,7 @@ function addAPI() {
 function editAPI(index) {
     const api = apis[index];
     document.getElementById('apiId').value = index;
-    document.getElementById('modelProvider').value = api.provider;
+    document.getElementById('apiName').value = api.name;
     document.getElementById('description').value = api.description;
     document.getElementById('apiKey').value = api.apiKey;
     document.getElementById('apiModalLabel').textContent = 'Edit API';
@@ -798,7 +1134,7 @@ function deleteAPI(index) {
 function saveAPI() {
     const id = document.getElementById('apiId').value;
     const api = {
-        provider: document.getElementById('modelProvider').value,
+        name: document.getElementById('apiName').value,
         description: document.getElementById('description').value,
         apiKey: document.getElementById('apiKey').value,
         dateCreated: id === '' ? new Date().toISOString().split('T')[0] : apis[parseInt(id)].dateCreated
@@ -862,7 +1198,61 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 ```
 
+## src/templates/model_templates.js
+
+```js
+const defaultModels = [
+    {
+        name: "GPT-4o-agent",
+        description: "GPT-4o LLM by OpenAI",
+        apiName: "OpenAI",
+        systemPrompt: "You are a helpful assistant.",
+        curl_command: `curl https://api.openai.com/v1/chat/completions \\
+            -H "Content-Type: application/json" \\
+            -H "Authorization: Bearer $$apiName$$" \\
+            -d '{
+                "model": "$$modelName$$",
+                "messages": [{"role": "system", "content": "$$systemPrompt$$"},{"role": "user", "content": "$$userPrompt$$"}],
+                "temperature": 0.7
+            }'`,
+        responseParser: "choices.0.message.content",
+        dateCreated: "2023-01-15"
+    }
+  ];
+  
+  export { defaultModels };
+```
+
+## src/templates/api_templates.js
+
+```js
+import { OPENAI_API_KEY } from './personal_apis.js';
+
+const defaultApis = [
+    {
+        name: "OpenAI",
+        description: "GPT-3.5 and GPT-4 models for natural language processing",
+        apiKey: OPENAI_API_KEY,
+        dateCreated: "2023-01-15"
+    },
+    {
+        name: "Anthropic",
+        description: "Claude AI models for various language tasks",
+        apiKey: "????",
+        dateCreated: "2023-03-22"
+    },
+    {
+        name: "Google",
+        description: "PaLM API for text generation and analysis",
+        apiKey: "????",
+        dateCreated: "2023-05-10"
+    }
+  ];
+  
+  export { defaultApis };
+```
+
 ## Excluded Files
 
 - **libs/bootstrap.bundle.min.js**: This file is present, but its content was not captured in this list for brevity.
-- **src/personal_apis.js**: This file is present, but its content was not captured in this list for brevity.
+- **src/templates/personal_apis.js**: This file is present, but its content was not captured in this list for brevity.

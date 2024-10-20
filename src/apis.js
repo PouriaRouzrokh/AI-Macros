@@ -1,11 +1,10 @@
 import { defaultApis } from './templates/api_templates.js';
 
 let apis = [];
-let modal;
 
 document.addEventListener('contentLoaded', function(e) {
     if (e.detail.page === 'apis') {
-        console.log('APIs page loaded');
+        console.log('API page loaded');
         loadAPIs();
     }
 });
@@ -27,9 +26,6 @@ function loadAPIs() {
 
 function setupEventListeners() {
     const addApiBtn = document.getElementById('addApiBtn');
-    const saveApiBtn = document.getElementById('saveApiBtn');
-    const closeBtn = document.getElementById('closeBtn');
-    modal = document.getElementById('apiModal');
     
     if (addApiBtn) {
         console.log('Add API button found');
@@ -37,40 +33,18 @@ function setupEventListeners() {
     } else {
         console.error('Add API button not found');
     }
-    
-    if (saveApiBtn) {
-        saveApiBtn.addEventListener('click', saveAPI);
-    } else {
-        console.error('Save API button not found');
-    }
-
-    // When the user clicks on the close button, close the modal
-    if (closeBtn) {
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = "none";
-        });
-    }
-    
-    // When the user clicks on <span> (x), close the modal
-    const span = document.querySelector('.close');
-    if (span) {
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
 }
 
 function saveAPIs() {
     chrome.storage.sync.set({apis: apis}, function() {
         console.log('APIs saved');
+        updateModelForm();
     });
+}
+
+function updateModelForm() {
+    const event = new CustomEvent('apisUpdated');
+    document.dispatchEvent(event);
 }
 
 function renderAPIList() {
@@ -82,7 +56,7 @@ function renderAPIList() {
         const card = document.createElement('div');
         card.className = 'api-card';
         card.innerHTML = `
-            <h3>${api.provider}</h3>
+            <h3>${api.name}</h3>
             <p>${api.description}</p>
             <p><small>Created: ${api.dateCreated}</small></p>
             <p>API Key: <span class="api-key">****${api.apiKey.slice(-4)}</span></p>
@@ -92,7 +66,6 @@ function renderAPIList() {
         apiList.appendChild(card);
     });
 
-    // Add event listeners for edit and delete buttons
     document.querySelectorAll('.edit-btn').forEach(btn => {
         btn.addEventListener('click', (e) => editAPI(e.target.dataset.index));
     });
@@ -102,25 +75,20 @@ function renderAPIList() {
 }
 
 function addAPI() {
-    if (!modal) {
-        console.error('Modal element not found');
-        return;
-    }
-    document.getElementById('apiId').value = '';
-    document.getElementById('apiForm').reset();
-    document.getElementById('apiModalLabel').textContent = 'Add New API';
-    modal.style.display = "block";
-    console.log('Add API modal opened');
+    chrome.runtime.sendMessage({
+        action: 'openModal',
+        modalType: 'api',
+        data: {}
+    });
 }
 
 function editAPI(index) {
     const api = apis[index];
-    document.getElementById('apiId').value = index;
-    document.getElementById('modelProvider').value = api.provider;
-    document.getElementById('description').value = api.description;
-    document.getElementById('apiKey').value = api.apiKey;
-    document.getElementById('apiModalLabel').textContent = 'Edit API';
-    modal.style.display = "block";
+    chrome.runtime.sendMessage({
+        action: 'openModal',
+        modalType: 'api',
+        data: { api, index }
+    });
 }
 
 function deleteAPI(index) {
@@ -131,22 +99,15 @@ function deleteAPI(index) {
     }
 }
 
-function saveAPI() {
-    const id = document.getElementById('apiId').value;
-    const api = {
-        provider: document.getElementById('modelProvider').value,
-        description: document.getElementById('description').value,
-        apiKey: document.getElementById('apiKey').value,
-        dateCreated: id === '' ? new Date().toISOString().split('T')[0] : apis[parseInt(id)].dateCreated
-    };
-
-    if (id === '') {
-        apis.push(api);
-    } else {
-        apis[parseInt(id)] = api;
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.action === 'saveAPI') {
+        const { api, index } = request.data;
+        if (index === undefined) {
+            apis.push(api);
+        } else {
+            apis[index] = api;
+        }
+        saveAPIs();
+        renderAPIList();
     }
-
-    saveAPIs();
-    renderAPIList();
-    modal.style.display = "none";
-}
+});

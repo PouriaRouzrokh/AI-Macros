@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Management</title>
+</head>
+<body>
+    <div class="model-container">
+        <h2 class="model-title">Model Management</h2>
+        <button id="addModelBtn" class="btn btn-primary mb-3">Add New Model</button>
+        <div id="modelList"></div>
+    </div>
+
+    <!-- Modal for adding/editing Model -->
+    <div class="modal" id="modelModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modelModalLabel">Add/Edit Model</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="modelForm">
+                        <input type="hidden" id="modelId">
+                        <div class="form-group">
+                            <label for="modelName">Model Name</label>
+                            <input type="text" class="form-control" id="modelName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input type="text" class="form-control" id="description" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="apiName">API Name</label>
+                            <select class="form-control" id="apiName" required>
+                                <option value="">Select an API</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="systemPrompt">System Prompt</label>
+                            <textarea class="form-control" id="systemPrompt" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="curlCommand">Curl Command</label>
+                            <textarea class="form-control" id="curlCommand" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="responseParser">Response Parser</label>
+                            <input type="text" class="form-control" id="responseParser" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeBtn">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveModelBtn">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

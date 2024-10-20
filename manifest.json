@@ -1,27 +1,37 @@
 {
-    "manifest_version": 3,
-    "name": "AI Macros",
-    "version": "0.01",
-    "permissions": ["contextMenus", "activeTab", "storage", "sidePanel"],
-    "background": {
-      "service_worker": "./src/background.js",
-      "type": "module"
-    },
-    "content_security_policy": {
-      "extension_pages": "script-src 'self'; object-src 'self'"
-    },
-    "web_accessible_resources": [{
-      "resources": ["public/html/*.html", "public/css/*.css", "public/js/*.js"],
-      "matches": ["<all_urls>"]
-    }],
-    "content_scripts": [
-        {
-          "matches": ["<all_urls>"],
-          "js": ["./src/content.js"]
-        }
-      ],
-    "side_panel": {
-      "default_path": "./public/html/sidepanel.html"
+  "manifest_version": 3,
+  "name": "AI Macros",
+  "version": "1.0",
+  "description": "Apply AI macros to your browsing experience",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "sidePanel"
+  ],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "AI Macros"
+  },
+  "side_panel": {
+    "default_path": "public/html/sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content.js"]
     }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "public/html/model_modal.html",
+        "public/html/api_modal.html"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
-  
