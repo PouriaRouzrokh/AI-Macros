@@ -1,60 +1,12 @@
 ## public/css/apply.css
 
 ```css
-:root {
-    --primary-color: #3498db;
-    --secondary-color: #2ecc71;
-    --background-color: #ecf0f1;
-    --text-color: #2c3e50;
-    --accent-color: #e74c3c;
-    --border-radius: 10px;
-    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    --font-family: 'Open Sans', sans-serif;
-}
 
-/* Apply styles to the Apply page */
-#apply-container {
-    background-color: var(--background-color);
-    padding: 20px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    font-family: var(--font-family);
-}
+```
 
-.apply-title {
-    color: var(--primary-color);
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
+## public/css/macros.css
 
-.input-selection,
-.macro-selection {
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: white;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-button {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-button:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-2px);
-}
-
-/* Add more custom styles as needed */
+```css
 
 ```
 
@@ -140,7 +92,7 @@ body, html {
 
 .navbar {
     background-color: var(--primary-color) !important;
-    /* border-radius: calc(var(--navbar-item-size) / 4); */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 0px;
     padding: 0px 5px 0px 5px;
     box-shadow: var(--box-shadow);
@@ -218,7 +170,7 @@ body, html {
 
 ```css
 :root {
-    --primary-color: #3498db;
+    --primary-color: #4a90e2;
     --secondary-color: #2ecc71;
     --background-color: #ecf0f1;
     --text-color: #2c3e50;
@@ -264,7 +216,7 @@ body, html {
     margin-bottom: 5px;
 }
 
-.btn-add-model, .edit-btn, .delete-btn {
+.btn-add-model, .edit-btn, .delete-btn, .duplicate-btn {
     background-color: var(--primary-color);
     color: white;
     border: none;
@@ -276,7 +228,7 @@ body, html {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.btn-add-model:hover, .edit-btn:hover, .delete-btn:hover {
+.btn-add-model:hover, .edit-btn:hover, .delete-btn:hover, .duplicate-btn:hover {
     background-color: var(--secondary-color);
     transform: translateY(-2px);
 }
@@ -342,7 +294,7 @@ body, html {
 
 ```css
 :root {
-    --primary-color: #3498db;
+    --primary-color: #4a90e2;
     --secondary-color: #2ecc71;
     --background-color: #ecf0f1;
     --text-color: #2c3e50;
@@ -450,6 +402,12 @@ body, html {
 
 ```
 
+## public/css/chat.css
+
+```css
+
+```
+
 ## public/css/modal.css
 
 ```css
@@ -468,7 +426,6 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
     width: 90%;
-    max-width: 500px;
     animation: modalFadeIn 0.3s ease-out;
 }
 
@@ -596,6 +553,12 @@ body {
 }
 ```
 
+## public/css/options.css
+
+```css
+
+```
+
 ## public/html/apis.html
 
 ```html
@@ -651,26 +614,7 @@ body {
 ## public/html/apply.html
 
 ```html
-<div class="apply-container">
-    <h2 class="apply-title">Apply Macros</h2>
-    <p>Select an input type and choose macros to apply:</p>
-    <div class="input-selection">
-        <button class="btn btn-outline-primary">Selected Text</button>
-        <button class="btn btn-outline-primary">Selected Image</button>
-        <button class="btn btn-outline-primary">Clipboard</button>
-        <button class="btn btn-outline-primary">Entire Page</button>
-        <button class="btn btn-outline-primary">Voice Input</button>
-    </div>
-    <div class="macro-selection mt-4">
-        <h4>Available Macros</h4>
-        <ul class="list-group">
-            <li class="list-group-item">Summarize</li>
-            <li class="list-group-item">Translate</li>
-            <li class="list-group-item">Proofread</li>
-        </ul>
-    </div>
-    <button class="btn btn-primary mt-4">Apply Macros</button>
-</div>
+
 ```
 
 ## public/html/model_modal.html
@@ -733,6 +677,18 @@ body {
     <script src="../../src/model_modal.js"></script>
 </body>
 </html>
+```
+
+## public/html/macros.html
+
+```html
+
+```
+
+## public/html/options.html
+
+```html
+
 ```
 
 ## public/html/api_modal.html
@@ -828,8 +784,8 @@ body {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-page="more" data-text="More">
-                                <i class="bi bi-stars icon"></i>
+                            <a class="nav-link" href="#" data-page="options" data-text="Options">
+                                <i class="bi bi-gear icon"></i>
                             </a>
                         </li>
                     </ul>
@@ -919,6 +875,12 @@ body {
     </div>
 </body>
 </html>
+```
+
+## public/html/chat.html
+
+```html
+
 ```
 
 ## src/sidepanel.js
@@ -1044,16 +1006,29 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     chrome.sidePanel.open({ tabId: sender.tab.id }).catch((error) => console.error(error));
   } else if (request.action === 'openModal') {
     const modalUrl = chrome.runtime.getURL(`public/html/${request.modalType}_modal.html`);
-    const windowOptions = {
-      url: `${modalUrl}?data=${encodeURIComponent(JSON.stringify(request.data || {}))}`,
-      type: 'popup',
-      width: 600,
-      height: 700
-    };
-    chrome.windows.create(windowOptions, (window) => {
-      if (chrome.runtime.lastError) {
-        console.error(chrome.runtime.lastError);
-      }
+    const popupWidthPercentage = 0.8;
+    const popupHeightPercentage = 0.9;
+
+    chrome.windows.getCurrent({ populate: true }, (currentWindow) => {
+      const popupWidth = Math.round(currentWindow.width * popupWidthPercentage);
+      const popupHeight = Math.round(currentWindow.height * popupHeightPercentage);
+      const left = Math.round((currentWindow.width - popupWidth) / 2 + currentWindow.left);
+      const top = Math.round((currentWindow.height - popupHeight) / 2 + currentWindow.top);
+
+      const windowOptions = {
+        url: `${modalUrl}?data=${encodeURIComponent(JSON.stringify(request.data || {}))}`,
+        type: 'popup',
+        width: popupWidth,
+        height: popupHeight,
+        left: left,
+        top: top
+      };
+
+      chrome.windows.create(windowOptions, (window) => {
+        if (chrome.runtime.lastError) {
+          console.error(chrome.runtime.lastError);
+        }
+      });
     });
   }
 });
@@ -1136,14 +1111,20 @@ function renderModelList() {
             <p>${model.description}</p>
             <p><small>Created: ${model.dateCreated}</small></p>
             <p>API: ${model.apiName}</p>
-            <button class="btn btn-sm btn-primary edit-btn" data-index="${index}">Edit</button>
-            <button class="btn btn-sm btn-danger delete-btn" data-index="${index}">Delete</button>
+            <div class="button-group">
+                <button class="btn btn-sm btn-primary edit-btn" data-index="${index}">Edit</button>
+                <button class="btn btn-sm btn-primary duplicate-btn" data-index="${index}">Duplicate</button>
+                <button class="btn btn-sm btn-danger delete-btn" data-index="${index}">Delete</button>
+            </div>
         `;
         modelList.appendChild(card);
     });
 
     document.querySelectorAll('.edit-btn').forEach(btn => {
         btn.addEventListener('click', (e) => editModel(e.target.dataset.index));
+    });
+    document.querySelectorAll('.duplicate-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => duplicateModel(e.target.dataset.index));
     });
     document.querySelectorAll('.delete-btn').forEach(btn => {
         btn.addEventListener('click', (e) => deleteModel(e.target.dataset.index));
@@ -1165,6 +1146,17 @@ function editModel(index) {
         modalType: 'model',
         data: { model, index, apis: apis }
     });
+}
+
+function duplicateModel(index) {
+    const originalModel = models[index];
+    const duplicatedModel = {...originalModel};
+    duplicatedModel.name = `${originalModel.name}_copy`;
+    duplicatedModel.dateCreated = new Date().toISOString().split('T')[0];
+    
+    models.push(duplicatedModel);
+    saveModels();
+    renderModelList();
 }
 
 function deleteModel(index) {

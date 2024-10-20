@@ -77,7 +77,7 @@ function renderAPIList() {
 function addAPI() {
     chrome.runtime.sendMessage({
         action: 'openModal',
-        modalType: 'api',
+        modalType: 'apis',
         data: {}
     });
 }
@@ -86,7 +86,7 @@ function editAPI(index) {
     const api = apis[index];
     chrome.runtime.sendMessage({
         action: 'openModal',
-        modalType: 'api',
+        modalType: 'apis',
         data: { api, index }
     });
 }

@@ -82,5 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Load initial content (e.g., 'apply' page)
-    loadContent('apply');
+    const initial_page = 'home';
+    loadContent(initial_page);
+    document.querySelector('.nav-link[data-page="' + initial_page + '"]').classList.add('active');
 });
