@@ -587,6 +587,13 @@ body {
 .btn-close:hover {
     opacity: .75;
 }
+
+.auto-resize {
+    overflow: hidden;
+    resize: none;
+    min-height: 60px;
+    max-height: 300px;
+}
 ```
 
 ## public/html/apis.html
@@ -694,7 +701,7 @@ body {
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" id="description" rows="3" required></textarea>
+                        <textarea class="form-control auto-resize" id="description" rows="3" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="apiName" class="form-label">API Name</label>
@@ -704,11 +711,11 @@ body {
                     </div>
                     <div class="mb-3">
                         <label for="systemPrompt" class="form-label">System Prompt</label>
-                        <textarea class="form-control" id="systemPrompt" rows="3" required></textarea>
+                        <textarea class="form-control auto-resize" id="systemPrompt" rows="3" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="curlCommand" class="form-label">Curl Command</label>
-                        <textarea class="form-control" id="curlCommand" rows="5" required></textarea>
+                        <textarea class="form-control auto-resize" id="curlCommand" rows="5" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="responseParser" class="form-label">Response Parser</label>
@@ -756,7 +763,7 @@ body {
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" id="description" rows="3" required></textarea>
+                        <textarea class="form-control auto-resize" id="description" rows="3" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="apiKey" class="form-label">API Key</label>
@@ -1241,7 +1248,20 @@ document.addEventListener('DOMContentLoaded', () => {
             form.reportValidity();
         }
     });
+
+    // Auto-resize textareas
+    const autoResizeTextareas = document.querySelectorAll('.auto-resize');
+    autoResizeTextareas.forEach(textarea => {
+        textarea.addEventListener('input', autoResize);
+        // Initial resize
+        autoResize.call(textarea);
+    });
 });
+
+function autoResize() {
+    this.style.height = 'auto';
+    this.style.height = this.scrollHeight + 'px';
+}
 ```
 
 ## src/api_modal.js
@@ -1287,7 +1307,20 @@ document.addEventListener('DOMContentLoaded', () => {
             form.reportValidity();
         }
     });
+
+    // Auto-resize textareas
+    const autoResizeTextareas = document.querySelectorAll('.auto-resize');
+    autoResizeTextareas.forEach(textarea => {
+        textarea.addEventListener('input', autoResize);
+        // Initial resize
+        autoResize.call(textarea);
+    });
 });
+
+function autoResize() {
+    this.style.height = 'auto';
+    this.style.height = this.scrollHeight + 'px';
+}
 ```
 
 ## src/apis.js
