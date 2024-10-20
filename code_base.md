@@ -581,11 +581,11 @@ body {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Keys</title>
+    <title>API Management</title>
 </head>
 <body>
     <div class="api-container">
-        <h2 class="api-title">API Keys</h2>
+        <h2 class="api-title">API Management</h2>
         <button id="addApiBtn" class="btn btn-primary mb-3">Add New API</button>
         <div id="apiList"></div>
     </div>
@@ -831,7 +831,7 @@ body {
 </head>
 <body>
     <div class="model-container">
-        <h2 class="model-title">Model Set </h2>
+        <h2 class="model-title">Model Management</h2>
         <button id="addModelBtn" class="btn btn-primary mb-3">Add New Model</button>
         <div id="modelList"></div>
     </div>

@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cancelBtn = document.getElementById('cancelBtn');
     const saveBtn = document.getElementById('saveModelBtn');
 
-    // Populate API select options
     apis.forEach(api => {
         const option = document.createElement('option');
         option.value = api.name;
@@ -18,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
         apiSelect.appendChild(option);
     });
 
-    // If editing, populate form with existing data
     if (modelData.model) {
         document.getElementById('modelId').value = modelIndex;
         document.getElementById('modelName').value = modelData.model.name;
@@ -44,22 +42,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 dateCreated: modelData.model ? modelData.model.dateCreated : new Date().toISOString().split('T')[0]
             };
 
+            saveBtn.disabled = true;
+            saveBtn.textContent = 'Saving...';
+
             chrome.runtime.sendMessage({
                 action: 'saveModel',
                 data: { model, index: modelIndex }
+            }, (response) => {
+                if (chrome.runtime.lastError) {
+                    console.error(chrome.runtime.lastError);
+                    alert('Error saving model. Please try again.');
+                    saveBtn.disabled = false;
+                    saveBtn.textContent = 'Save';
+                } else {
+                    console.log('Model saved successfully');
+                    window.close();
+                }
             });
-
-            window.close();
         } else {
             form.reportValidity();
         }
     });
 
-    // Auto-resize textareas
     const autoResizeTextareas = document.querySelectorAll('.auto-resize');
     autoResizeTextareas.forEach(textarea => {
         textarea.addEventListener('input', autoResize);
-        // Initial resize
         autoResize.call(textarea);
     });
 });

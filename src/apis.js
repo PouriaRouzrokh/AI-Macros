@@ -109,5 +109,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         }
         saveAPIs();
         renderAPIList();
+        sendResponse({success: true});
+    } else if (request.action === 'refreshList' && request.listType === 'api') {
+        loadAPIs();
     }
+    return true; // Indicates that the response will be sent asynchronously
 });

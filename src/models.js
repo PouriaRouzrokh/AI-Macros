@@ -138,5 +138,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         }
         saveModels();
         renderModelList();
+        sendResponse({success: true});
+    } else if (request.action === 'refreshList' && request.listType === 'model') {
+        loadModels();
     }
+    return true; // Indicates that the response will be sent asynchronously
 });

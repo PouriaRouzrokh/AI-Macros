@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cancelBtn = document.getElementById('cancelBtn');
     const saveBtn = document.getElementById('saveApiBtn');
 
-    // If editing, populate form with existing data
     if (apiData.api) {
         document.getElementById('apiId').value = apiIndex;
         document.getElementById('apiName').value = apiData.api.name;
@@ -28,22 +27,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 dateCreated: apiData.api ? apiData.api.dateCreated : new Date().toISOString().split('T')[0]
             };
 
+            saveBtn.disabled = true;
+            saveBtn.textContent = 'Saving...';
+
             chrome.runtime.sendMessage({
                 action: 'saveAPI',
                 data: { api, index: apiIndex }
+            }, (response) => {
+                if (chrome.runtime.lastError) {
+                    console.error(chrome.runtime.lastError);
+                    alert('Error saving API. Please try again.');
+                    saveBtn.disabled = false;
+                    saveBtn.textContent = 'Save';
+                } else {
+                    console.log('API saved successfully');
+                    window.close();
+                }
             });
-
-            window.close();
         } else {
             form.reportValidity();
         }
     });
 
-    // Auto-resize textareas
     const autoResizeTextareas = document.querySelectorAll('.auto-resize');
     autoResizeTextareas.forEach(textarea => {
         textarea.addEventListener('input', autoResize);
-        // Initial resize
         autoResize.call(textarea);
     });
 });
