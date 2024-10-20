@@ -54,4 +54,17 @@ document.addEventListener('DOMContentLoaded', () => {
             form.reportValidity();
         }
     });
+
+    // Auto-resize textareas
+    const autoResizeTextareas = document.querySelectorAll('.auto-resize');
+    autoResizeTextareas.forEach(textarea => {
+        textarea.addEventListener('input', autoResize);
+        // Initial resize
+        autoResize.call(textarea);
+    });
 });
+
+function autoResize() {
+    this.style.height = 'auto';
+    this.style.height = this.scrollHeight + 'px';
+}

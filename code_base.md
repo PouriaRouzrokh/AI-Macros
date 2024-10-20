@@ -450,6 +450,145 @@ body, html {
 
 ```
 
+## public/css/modal.css
+
+```css
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.modal-wrapper {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    width: 90%;
+    max-width: 500px;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #212529;
+    margin: 0;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-footer {
+    border-top: 1px solid #e9ecef;
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn {
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.btn-close {
+    background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+    border: 0;
+    border-radius: 0.25rem;
+    opacity: .5;
+    padding: 0.25rem 0.25rem;
+}
+
+.btn-close:hover {
+    opacity: .75;
+}
+```
+
 ## public/html/apis.html
 
 ```html
@@ -532,85 +671,55 @@ body, html {
 ```html
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Model Modal</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            body {
-                background-color: #f8f9fa;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-                font-family: Arial, sans-serif;
-            }
-            .modal-content {
-                width: 90%;
-                max-width: 600px;
-                background-color: white;
-                border-radius: 8px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            }
-            .modal-header {
-                background-color: #007bff;
-                color: white;
-                border-top-left-radius: 8px;
-                border-top-right-radius: 8px;
-            }
-            .modal-title {
-                font-weight: bold;
-            }
-            .btn-close {
-                color: white;
-            }
-            .form-label {
-                font-weight: bold;
-            }
-        </style>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Modal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/modal.css">
+</head>
 <body>
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="modelModalLabel">Add/Edit Model</h5>
-            <button type="button" class="btn-close" id="closeBtn" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form id="modelForm">
-                <input type="hidden" id="modelId">
-                <div class="mb-3">
-                    <label for="modelName" class="form-label">Model Name</label>
-                    <input type="text" class="form-control" id="modelName" required>
-                </div>
-                <div class="mb-3">
-                    <label for="description" class="form-label">Description</label>
-                    <input type="text" class="form-control" id="description" required>
-                </div>
-                <div class="mb-3">
-                    <label for="apiName" class="form-label">API Name</label>
-                    <select class="form-select" id="apiName" required>
-                        <option value="">Select an API</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="systemPrompt" class="form-label">System Prompt</label>
-                    <textarea class="form-control" id="systemPrompt" required></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="curlCommand" class="form-label">Curl Command</label>
-                    <textarea class="form-control" id="curlCommand" required></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="responseParser" class="form-label">Response Parser</label>
-                    <input type="text" class="form-control" id="responseParser" required>
-                </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
-            <button type="button" class="btn btn-primary" id="saveModelBtn">Save</button>
+    <div class="modal-wrapper">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modelModalLabel">Add/Edit Model</h5>
+                <button type="button" class="btn-close" id="closeBtn" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="modelForm">
+                    <input type="hidden" id="modelId">
+                    <div class="mb-3">
+                        <label for="modelName" class="form-label">Model Name</label>
+                        <input type="text" class="form-control" id="modelName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="apiName" class="form-label">API Name</label>
+                        <select class="form-select" id="apiName" required>
+                            <option value="">Select an API</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="systemPrompt" class="form-label">System Prompt</label>
+                        <textarea class="form-control" id="systemPrompt" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="curlCommand" class="form-label">Curl Command</label>
+                        <textarea class="form-control" id="curlCommand" rows="5" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="responseParser" class="form-label">Response Parser</label>
+                        <input type="text" class="form-control" id="responseParser" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                <button type="button" class="btn btn-primary" id="saveModelBtn">Save</button>
+            </div>
         </div>
     </div>
 
@@ -624,71 +733,41 @@ body, html {
 ```html
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>API Modal</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            body {
-                background-color: #f8f9fa;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-                font-family: Arial, sans-serif;
-            }
-            .modal-content {
-                width: 90%;
-                max-width: 600px;
-                background-color: white;
-                border-radius: 8px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            }
-            .modal-header {
-                background-color: #28a745;
-                color: white;
-                border-top-left-radius: 8px;
-                border-top-right-radius: 8px;
-            }
-            .modal-title {
-                font-weight: bold;
-            }
-            .btn-close {
-                color: white;
-            }
-            .form-label {
-                font-weight: bold;
-            }
-        </style>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Modal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/modal.css">
+</head>
 <body>
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="apiModalLabel">Add/Edit API</h5>
-            <button type="button" class="btn-close" id="closeBtn" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form id="apiForm">
-                <input type="hidden" id="apiId">
-                <div class="mb-3">
-                    <label for="apiName" class="form-label">API Name</label>
-                    <input type="text" class="form-control" id="apiName" required>
-                </div>
-                <div class="mb-3">
-                    <label for="description" class="form-label">Description</label>
-                    <input type="text" class="form-control" id="description" required>
-                </div>
-                <div class="mb-3">
-                    <label for="apiKey" class="form-label">API Key</label>
-                    <input type="text" class="form-control" id="apiKey" required>
-                </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
-            <button type="button" class="btn btn-primary" id="saveApiBtn">Save</button>
+    <div class="modal-wrapper">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="apiModalLabel">Add/Edit API</h5>
+                <button type="button" class="btn-close" id="closeBtn" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="apiForm">
+                    <input type="hidden" id="apiId">
+                    <div class="mb-3">
+                        <label for="apiName" class="form-label">API Name</label>
+                        <input type="text" class="form-control" id="apiName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="apiKey" class="form-label">API Key</label>
+                        <input type="text" class="form-control" id="apiKey" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                <button type="button" class="btn btn-primary" id="saveApiBtn">Save</button>
+            </div>
         </div>
     </div>
 
@@ -962,7 +1041,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       url: `${modalUrl}?data=${encodeURIComponent(JSON.stringify(request.data || {}))}`,
       type: 'popup',
       width: 600,
-      height: 600
+      height: 700
     };
     chrome.windows.create(windowOptions, (window) => {
       if (chrome.runtime.lastError) {
