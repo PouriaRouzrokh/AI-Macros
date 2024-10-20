@@ -290,125 +290,7 @@ body, html {
 }
 ```
 
-## public/css/apis.css
-
-```css
-:root {
-    --primary-color: #4a90e2;
-    --secondary-color: #2ecc71;
-    --background-color: #ecf0f1;
-    --text-color: #2c3e50;
-    --accent-color: #e74c3c;
-    --border-radius: 10px;
-    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    --font-family: 'Open Sans', sans-serif;
-}
-
-/* API Container Styles */
-.api-container {
-    padding: 20px;
-    background-color: var(--background-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    font-family: var(--font-family);
-}
-
-.api-title {
-    color: var(--primary-color);
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-/* API Card Styles */
-.api-card {
-    background-color: white;
-    border: 1px solid #e0e0e0;
-    border-radius: var(--border-radius);
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: var(--box-shadow);
-}
-
-.api-card h3 {
-    color: var(--primary-color);
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.api-card p {
-    color: var(--text-color);
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.api-key {
-    font-family: monospace;
-    background-color: #f5f5f5;
-    padding: 2px 4px;
-    border-radius: 2px;
-}
-
-/* Button Styles */
-.btn-add-api, .edit-btn, .delete-btn {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.btn-add-api:hover, .edit-btn:hover, .delete-btn:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-2px);
-}
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-family);
-}
-
-.modal-content {
-    background-color: white;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-```
-
-## public/css/chat.css
-
-```css
-
-```
-
-## public/css/modal.css
+## public/css/modals.css
 
 ```css
 body {
@@ -553,6 +435,124 @@ body {
 }
 ```
 
+## public/css/apis.css
+
+```css
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #2ecc71;
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --border-radius: 10px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --font-family: 'Open Sans', sans-serif;
+}
+
+/* API Container Styles */
+.api-container {
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    font-family: var(--font-family);
+}
+
+.api-title {
+    color: var(--primary-color);
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* API Card Styles */
+.api-card {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: var(--box-shadow);
+}
+
+.api-card h3 {
+    color: var(--primary-color);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.api-card p {
+    color: var(--text-color);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.api-key {
+    font-family: monospace;
+    background-color: #f5f5f5;
+    padding: 2px 4px;
+    border-radius: 2px;
+}
+
+/* Button Styles */
+.btn-add-api, .edit-btn, .delete-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-add-api:hover, .edit-btn:hover, .delete-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family);
+}
+
+.modal-content {
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+```
+
+## public/css/chat.css
+
+```css
+
+```
+
 ## public/css/options.css
 
 ```css
@@ -641,7 +641,7 @@ body {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Model Modal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/modals.css">
 </head>
 <body>
     <div class="modal-wrapper">
@@ -709,7 +709,7 @@ body {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Modal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/modals.css">
 </head>
 <body>
     <div class="modal-wrapper">
@@ -1015,33 +1015,45 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === 'clickSidePanel') {
     chrome.sidePanel.open({ tabId: sender.tab.id }).catch((error) => console.error(error));
   } else if (request.action === 'openModal') {
-    const modalUrl = chrome.runtime.getURL(`public/html/${request.modalType}_modal.html`);
-    const popupWidthPercentage = 0.8;
-    const popupHeightPercentage = 0.9;
-
-    chrome.windows.getCurrent({ populate: true }, (currentWindow) => {
-      const popupWidth = Math.round(currentWindow.width * popupWidthPercentage);
-      const popupHeight = Math.round(currentWindow.height * popupHeightPercentage);
-      const left = Math.round((currentWindow.width - popupWidth) / 2 + currentWindow.left);
-      const top = Math.round((currentWindow.height - popupHeight) / 2 + currentWindow.top);
-
-      const windowOptions = {
-        url: `${modalUrl}?data=${encodeURIComponent(JSON.stringify(request.data || {}))}`,
-        type: 'popup',
-        width: popupWidth,
-        height: popupHeight,
-        left: left,
-        top: top
-      };
-
-      chrome.windows.create(windowOptions, (window) => {
-        if (chrome.runtime.lastError) {
-          console.error(chrome.runtime.lastError);
-        }
-      });
+    openModal(request.modalType, request.data);
+  } else if (request.action === 'saveAPI' || request.action === 'saveModel') {
+    // Forward the message to the appropriate content script
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+      if (tabs[0]) {
+        chrome.tabs.sendMessage(tabs[0].id, request);
+      }
     });
   }
+  return true; // Indicates that the response will be sent asynchronously
 });
+
+function openModal(modalType, data) {
+  const modalUrl = chrome.runtime.getURL(`public/html/${modalType}_modal.html`);
+  const popupWidthPercentage = 0.8;
+  const popupHeightPercentage = 0.9;
+
+  chrome.windows.getCurrent({ populate: true }, (currentWindow) => {
+    const popupWidth = Math.round(currentWindow.width * popupWidthPercentage);
+    const popupHeight = Math.round(currentWindow.height * popupHeightPercentage);
+    const left = Math.round((currentWindow.width - popupWidth) / 2 + currentWindow.left);
+    const top = Math.round((currentWindow.height - popupHeight) / 2 + currentWindow.top);
+
+    const windowOptions = {
+      url: `${modalUrl}?data=${encodeURIComponent(JSON.stringify(data || {}))}`,
+      type: 'popup',
+      width: popupWidth,
+      height: popupHeight,
+      left: left,
+      top: top
+    };
+
+    chrome.windows.create(windowOptions, (window) => {
+      if (chrome.runtime.lastError) {
+        console.error(chrome.runtime.lastError);
+      }
+    });
+  });
+}
 ```
 
 ## src/models.js
@@ -1187,7 +1199,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         }
         saveModels();
         renderModelList();
+        sendResponse({success: true});
+    } else if (request.action === 'refreshList' && request.listType === 'model') {
+        loadModels();
     }
+    return true; // Indicates that the response will be sent asynchronously
 });
 ```
 
@@ -1206,7 +1222,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cancelBtn = document.getElementById('cancelBtn');
     const saveBtn = document.getElementById('saveModelBtn');
 
-    // Populate API select options
     apis.forEach(api => {
         const option = document.createElement('option');
         option.value = api.name;
@@ -1214,7 +1229,6 @@ document.addEventListener('DOMContentLoaded', () => {
         apiSelect.appendChild(option);
     });
 
-    // If editing, populate form with existing data
     if (modelData.model) {
         document.getElementById('modelId').value = modelIndex;
         document.getElementById('modelName').value = modelData.model.name;
@@ -1240,22 +1254,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 dateCreated: modelData.model ? modelData.model.dateCreated : new Date().toISOString().split('T')[0]
             };
 
+            saveBtn.disabled = true;
+            saveBtn.textContent = 'Saving...';
+
             chrome.runtime.sendMessage({
                 action: 'saveModel',
                 data: { model, index: modelIndex }
+            }, (response) => {
+                if (chrome.runtime.lastError) {
+                    console.error(chrome.runtime.lastError);
+                    alert('Error saving model. Please try again.');
+                    saveBtn.disabled = false;
+                    saveBtn.textContent = 'Save';
+                } else {
+                    console.log('Model saved successfully');
+                    window.close();
+                }
             });
-
-            window.close();
         } else {
             form.reportValidity();
         }
     });
 
-    // Auto-resize textareas
     const autoResizeTextareas = document.querySelectorAll('.auto-resize');
     autoResizeTextareas.forEach(textarea => {
         textarea.addEventListener('input', autoResize);
-        // Initial resize
         autoResize.call(textarea);
     });
 });
@@ -1279,7 +1302,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cancelBtn = document.getElementById('cancelBtn');
     const saveBtn = document.getElementById('saveApiBtn');
 
-    // If editing, populate form with existing data
     if (apiData.api) {
         document.getElementById('apiId').value = apiIndex;
         document.getElementById('apiName').value = apiData.api.name;
@@ -1299,22 +1321,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 dateCreated: apiData.api ? apiData.api.dateCreated : new Date().toISOString().split('T')[0]
             };
 
+            saveBtn.disabled = true;
+            saveBtn.textContent = 'Saving...';
+
             chrome.runtime.sendMessage({
                 action: 'saveAPI',
                 data: { api, index: apiIndex }
+            }, (response) => {
+                if (chrome.runtime.lastError) {
+                    console.error(chrome.runtime.lastError);
+                    alert('Error saving API. Please try again.');
+                    saveBtn.disabled = false;
+                    saveBtn.textContent = 'Save';
+                } else {
+                    console.log('API saved successfully');
+                    window.close();
+                }
             });
-
-            window.close();
         } else {
             form.reportValidity();
         }
     });
 
-    // Auto-resize textareas
     const autoResizeTextareas = document.querySelectorAll('.auto-resize');
     autoResizeTextareas.forEach(textarea => {
         textarea.addEventListener('input', autoResize);
-        // Initial resize
         autoResize.call(textarea);
     });
 });
@@ -1439,8 +1470,13 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         }
         saveAPIs();
         renderAPIList();
+        sendResponse({success: true});
+    } else if (request.action === 'refreshList' && request.listType === 'api') {
+        loadAPIs();
     }
+    return true; // Indicates that the response will be sent asynchronously
 });
+
 ```
 
 ## src/content.js
