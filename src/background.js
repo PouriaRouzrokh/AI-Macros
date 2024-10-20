@@ -27,16 +27,29 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     chrome.sidePanel.open({ tabId: sender.tab.id }).catch((error) => console.error(error));
   } else if (request.action === 'openModal') {
     const modalUrl = chrome.runtime.getURL(`public/html/${request.modalType}_modal.html`);
-    const windowOptions = {
-      url: `${modalUrl}?data=${encodeURIComponent(JSON.stringify(request.data || {}))}`,
-      type: 'popup',
-      width: 600,
-      height: 700
-    };
-    chrome.windows.create(windowOptions, (window) => {
-      if (chrome.runtime.lastError) {
-        console.error(chrome.runtime.lastError);
-      }
+    const popupWidthPercentage = 0.8;
+    const popupHeightPercentage = 0.9;
+
+    chrome.windows.getCurrent({ populate: true }, (currentWindow) => {
+      const popupWidth = Math.round(currentWindow.width * popupWidthPercentage);
+      const popupHeight = Math.round(currentWindow.height * popupHeightPercentage);
+      const left = Math.round((currentWindow.width - popupWidth) / 2 + currentWindow.left);
+      const top = Math.round((currentWindow.height - popupHeight) / 2 + currentWindow.top);
+
+      const windowOptions = {
+        url: `${modalUrl}?data=${encodeURIComponent(JSON.stringify(request.data || {}))}`,
+        type: 'popup',
+        width: popupWidth,
+        height: popupHeight,
+        left: left,
+        top: top
+      };
+
+      chrome.windows.create(windowOptions, (window) => {
+        if (chrome.runtime.lastError) {
+          console.error(chrome.runtime.lastError);
+        }
+      });
     });
   }
 });

@@ -72,14 +72,20 @@ function renderModelList() {
             <p>${model.description}</p>
             <p><small>Created: ${model.dateCreated}</small></p>
             <p>API: ${model.apiName}</p>
-            <button class="btn btn-sm btn-primary edit-btn" data-index="${index}">Edit</button>
-            <button class="btn btn-sm btn-danger delete-btn" data-index="${index}">Delete</button>
+            <div class="button-group">
+                <button class="btn btn-sm btn-primary edit-btn" data-index="${index}">Edit</button>
+                <button class="btn btn-sm btn-primary duplicate-btn" data-index="${index}">Duplicate</button>
+                <button class="btn btn-sm btn-danger delete-btn" data-index="${index}">Delete</button>
+            </div>
         `;
         modelList.appendChild(card);
     });
 
     document.querySelectorAll('.edit-btn').forEach(btn => {
         btn.addEventListener('click', (e) => editModel(e.target.dataset.index));
+    });
+    document.querySelectorAll('.duplicate-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => duplicateModel(e.target.dataset.index));
     });
     document.querySelectorAll('.delete-btn').forEach(btn => {
         btn.addEventListener('click', (e) => deleteModel(e.target.dataset.index));
@@ -101,6 +107,17 @@ function editModel(index) {
         modalType: 'model',
         data: { model, index, apis: apis }
     });
+}
+
+function duplicateModel(index) {
+    const originalModel = models[index];
+    const duplicatedModel = {...originalModel};
+    duplicatedModel.name = `${originalModel.name}_copy`;
+    duplicatedModel.dateCreated = new Date().toISOString().split('T')[0];
+    
+    models.push(duplicatedModel);
+    saveModels();
+    renderModelList();
 }
 
 function deleteModel(index) {
