@@ -1,6 +1,6 @@
 const defaultModels = [
     {
-        name: "OpenAI/GPT-4o",
+        name: "openai_gpt_4o",
         description: "Base GPT-4o LLM by OpenAI",
         apiName: "AI Macros",
         baseModel: "gpt-4o",
@@ -8,7 +8,7 @@ const defaultModels = [
             -H "Content-Type: application/json" \\
             -H "Authorization: Bearer $$apiName$$" \\
             -d '{
-                "model": "$$modelName$$",
+                "model": "$$baseModel$$",
                 "messages": [{"role": "system", "content": "$$systemPrompt$$"},{"role": "user", "content": "$$userPrompt$$"}],
                 "temperature": $$temperature$$
             }'`,
