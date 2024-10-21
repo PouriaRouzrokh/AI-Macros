@@ -1,4 +1,4 @@
-import { defaultApis } from './templates/api_templates.js';
+import { defaultApis } from './data/api_examples.js';
 
 let apis = [];
 

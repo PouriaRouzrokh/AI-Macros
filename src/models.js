@@ -1,4 +1,4 @@
-import { defaultModels } from './templates/model_templates.js';
+import { defaultModels } from './data/model_examples.js';
 
 let models = [];
 let apis = [];
