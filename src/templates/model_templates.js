@@ -1,16 +1,15 @@
 const defaultModels = [
     {
-        name: "GPT-4o-agent",
-        description: "GPT-4o LLM by OpenAI",
-        apiName: "OpenAI",
-        systemPrompt: "You are a helpful assistant.",
+        name: "OpenAI/GPT-4o",
+        description: "Base GPT-4o LLM by OpenAI",
+        apiName: "AI Macros",
         curl_command: `curl https://api.openai.com/v1/chat/completions \\
             -H "Content-Type: application/json" \\
             -H "Authorization: Bearer $$apiName$$" \\
             -d '{
-                "model": "$$modelName$$",
+                "model": "$$modelInstanceName$$",
                 "messages": [{"role": "system", "content": "$$systemPrompt$$"},{"role": "user", "content": "$$userPrompt$$"}],
-                "temperature": 0.7
+                "temperature": $$temperature$$
             }'`,
         responseParser: "choices.0.message.content",
         dateCreated: "2023-01-15"

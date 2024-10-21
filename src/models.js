@@ -71,7 +71,6 @@ function renderModelList() {
             <h3>${model.name}</h3>
             <p>${model.description}</p>
             <p><small>Created: ${model.dateCreated}</small></p>
-            <p>API: ${model.apiName}</p>
             <div class="button-group">
                 <button class="btn btn-sm btn-primary edit-btn" data-index="${index}">Edit</button>
                 <button class="btn btn-sm btn-primary duplicate-btn" data-index="${index}">Duplicate</button>

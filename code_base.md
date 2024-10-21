@@ -188,7 +188,7 @@ body, html {
     font-family: var(--font-family);
 }
 
-.model-title {
+.model-instance-title {
     color: var(--primary-color);
     font-size: 24px;
     font-weight: bold;
@@ -654,8 +654,8 @@ body {
                 <form id="modelForm">
                     <input type="hidden" id="modelId">
                     <div class="mb-3">
-                        <label for="modelName" class="form-label">Model Name</label>
-                        <input type="text" class="form-control" id="modelName" required>
+                        <label for="modelInstanceName" class="form-label">Model Name</label>
+                        <input type="text" class="form-control" id="modelInstanceName" required>
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
@@ -831,7 +831,7 @@ body {
 </head>
 <body>
     <div class="model-container">
-        <h2 class="model-title">Model Management</h2>
+        <h2 class="model-instance-title">Model Management</h2>
         <button id="addModelBtn" class="btn btn-primary mb-3">Add New Model</button>
         <div id="modelList"></div>
     </div>
@@ -847,8 +847,8 @@ body {
                     <form id="modelForm">
                         <input type="hidden" id="modelId">
                         <div class="form-group">
-                            <label for="modelName">Model Name</label>
-                            <input type="text" class="form-control" id="modelName" required>
+                            <label for="modelInstanceName">Model Name</label>
+                            <input type="text" class="form-control" id="modelInstanceName" required>
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
@@ -1231,7 +1231,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (modelData.model) {
         document.getElementById('modelId').value = modelIndex;
-        document.getElementById('modelName').value = modelData.model.name;
+        document.getElementById('modelInstanceName').value = modelData.model.name;
         document.getElementById('description').value = modelData.model.description;
         document.getElementById('apiName').value = modelData.model.apiName;
         document.getElementById('systemPrompt').value = modelData.model.systemPrompt;
@@ -1245,7 +1245,7 @@ document.addEventListener('DOMContentLoaded', () => {
     saveBtn.addEventListener('click', () => {
         if (form.checkValidity()) {
             const model = {
-                name: document.getElementById('modelName').value,
+                name: document.getElementById('modelInstanceName').value,
                 description: document.getElementById('description').value,
                 apiName: document.getElementById('apiName').value,
                 systemPrompt: document.getElementById('systemPrompt').value,
@@ -1538,7 +1538,7 @@ const defaultModels = [
             -H "Content-Type: application/json" \\
             -H "Authorization: Bearer $$apiName$$" \\
             -d '{
-                "model": "$$modelName$$",
+                "model": "$$modelInstanceName$$",
                 "messages": [{"role": "system", "content": "$$systemPrompt$$"},{"role": "user", "content": "$$userPrompt$$"}],
                 "temperature": 0.7
             }'`,

@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (modelData.model) {
         document.getElementById('modelId').value = modelIndex;
-        document.getElementById('modelName').value = modelData.model.name;
+        document.getElementById('modelInstanceName').value = modelData.model.name;
         document.getElementById('description').value = modelData.model.description;
         document.getElementById('apiName').value = modelData.model.apiName;
         document.getElementById('systemPrompt').value = modelData.model.systemPrompt;
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     saveBtn.addEventListener('click', () => {
         if (form.checkValidity()) {
             const model = {
-                name: document.getElementById('modelName').value,
+                name: document.getElementById('modelInstanceName').value,
                 description: document.getElementById('description').value,
                 apiName: document.getElementById('apiName').value,
                 systemPrompt: document.getElementById('systemPrompt').value,

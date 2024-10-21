@@ -17,7 +17,7 @@
     font-family: var(--font-family);
 }
 
-.model-title {
+.model-instance-title {
     color: var(--primary-color);
     font-size: 24px;
     font-weight: bold;

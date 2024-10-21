@@ -59,10 +59,16 @@ function renderAPIList() {
             <h3>${api.name}</h3>
             <p>${api.description}</p>
             <p><small>Created: ${api.dateCreated}</small></p>
-            <p>API Key: <span class="api-key">****${api.apiKey.slice(-4)}</span></p>
-            <button class="btn btn-sm btn-primary edit-btn" data-index="${index}">Edit</button>
-            <button class="btn btn-sm btn-danger delete-btn" data-index="${index}">Delete</button>
         `;
+        
+        // Add buttons only if the className is not "AI Macros"
+        if (api.name !== "AI Macros") {
+            card.innerHTML += `
+                <button class="btn btn-sm btn-primary edit-btn" data-index="${index}">Edit</button>
+                <button class="btn btn-sm btn-danger delete-btn" data-index="${index}">Delete</button>
+            `;
+        }
+
         apiList.appendChild(card);
     });
 
