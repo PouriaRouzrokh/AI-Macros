@@ -1,9 +1,9 @@
 const defaultModels = [
     {
-        instanceName: "OpenAI/GPT-4o",
+        name: "OpenAI/GPT-4o",
         description: "Base GPT-4o LLM by OpenAI",
         apiName: "AI Macros",
-        modelName: "gpt-4o",
+        baseModel: "gpt-4o",
         curl_command: `curl https://api.openai.com/v1/chat/completions \\
             -H "Content-Type: application/json" \\
             -H "Authorization: Bearer $$apiName$$" \\

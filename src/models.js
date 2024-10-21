@@ -68,7 +68,7 @@ function renderModelList() {
         const card = document.createElement('div');
         card.className = 'model-card';
         card.innerHTML = `
-            <h3>${model.instanceName}</h3>
+            <h3>${model.name}</h3>
             <p>${model.description}</p>
             <p><small>Created: ${model.dateCreated}</small></p>
             <div class="button-group">
@@ -111,7 +111,7 @@ function editModel(index) {
 function duplicateModel(index) {
     const originalModel = models[index];
     const duplicatedModel = {...originalModel};
-    duplicatedModel.instanceName = `${originalModel.instanceName}_copy`;
+    duplicatedModel.name = `${originalModel.name}_copy`;
     duplicatedModel.dateCreated = new Date().toISOString().split('T')[0];
     
     models.push(duplicatedModel);
