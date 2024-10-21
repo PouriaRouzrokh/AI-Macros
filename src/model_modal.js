@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('modelInstanceName').value = modelData.model.name;
         document.getElementById('description').value = modelData.model.description;
         document.getElementById('apiName').value = modelData.model.apiName;
-        document.getElementById('systemPrompt').value = modelData.model.systemPrompt;
         document.getElementById('curlCommand').value = modelData.model.curl_command;
         document.getElementById('responseParser').value = modelData.model.responseParser;
     }
@@ -36,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 name: document.getElementById('modelInstanceName').value,
                 description: document.getElementById('description').value,
                 apiName: document.getElementById('apiName').value,
-                systemPrompt: document.getElementById('systemPrompt').value,
                 curl_command: document.getElementById('curlCommand').value,
                 responseParser: document.getElementById('responseParser').value,
                 dateCreated: modelData.model ? modelData.model.dateCreated : new Date().toISOString().split('T')[0]
@@ -54,9 +52,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert('Error saving model. Please try again.');
                     saveBtn.disabled = false;
                     saveBtn.textContent = 'Save';
-                } else {
+                } else if (response && response.success) {
                     console.log('Model saved successfully');
+                    chrome.runtime.sendMessage({ action: 'refreshList', listType: 'model' });
                     window.close();
+                } else {
+                    console.error('Unexpected response:', response);
+                    alert('Error saving model. Please try again.');
+                    saveBtn.disabled = false;
+                    saveBtn.textContent = 'Save';
                 }
             });
         } else {

@@ -338,7 +338,7 @@ body {
     align-items: center;
 }
 
-.modal-title {
+.model-instance-title {
     font-size: 1.25rem;
     font-weight: 600;
     color: #212529;
@@ -589,38 +589,6 @@ body {
         <button id="addApiBtn" class="btn btn-primary mb-3">Add New API</button>
         <div id="apiList"></div>
     </div>
-
-    <!-- Modal for adding/editing API -->
-    <div class="modal" id="apiModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="apiModalLabel">Add/Edit API</h5>
-                </div>
-                <div class="modal-body">
-                    <form id="apiForm">
-                        <input type="hidden" id="apiId">
-                        <div class="form-group">
-                            <label for="apiName">API Name</label>
-                            <input type="text" class="form-control" id="apiName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <input type="text" class="form-control" id="description" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="apiKey">API Key</label>
-                            <input type="text" class="form-control" id="apiKey" required>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeBtn">Close</button>
-                    <button type="button" class="btn btn-primary" id="saveApiBtn">Save</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
 ```
@@ -647,7 +615,7 @@ body {
     <div class="modal-wrapper">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modelModalLabel">Add/Edit Model</h5>
+                <h5 class="model-instance-title" id="modelModalLabel">Add/Edit Model</h5>
                 <button type="button" class="btn-close" id="closeBtn" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -715,7 +683,7 @@ body {
     <div class="modal-wrapper">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="apiModalLabel">Add/Edit API</h5>
+                <h5 class="model-instance-title" id="apiModalLabel">Add/Edit API</h5>
                 <button type="button" class="btn-close" id="closeBtn" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -827,59 +795,13 @@ body {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Model Management</title>
+    <title>Model Instances</title>
 </head>
 <body>
     <div class="model-container">
-        <h2 class="model-instance-title">Model Management</h2>
-        <button id="addModelBtn" class="btn btn-primary mb-3">Add New Model</button>
+        <h2 class="model-instance-title">Model Instances</h2>
+        <button id="addModelBtn" class="btn btn-primary mb-3">Add New Model Instance</button>
         <div id="modelList"></div>
-    </div>
-
-    <!-- Modal for adding/editing Model -->
-    <div class="modal" id="modelModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modelModalLabel">Add/Edit Model</h5>
-                </div>
-                <div class="modal-body">
-                    <form id="modelForm">
-                        <input type="hidden" id="modelId">
-                        <div class="form-group">
-                            <label for="modelInstanceName">Model Name</label>
-                            <input type="text" class="form-control" id="modelInstanceName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <input type="text" class="form-control" id="description" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="apiName">API Name</label>
-                            <select class="form-control" id="apiName" required>
-                                <option value="">Select an API</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="systemPrompt">System Prompt</label>
-                            <textarea class="form-control" id="systemPrompt" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="curlCommand">Curl Command</label>
-                            <textarea class="form-control" id="curlCommand" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="responseParser">Response Parser</label>
-                            <input type="text" class="form-control" id="responseParser" required>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeBtn">Close</button>
-                    <button type="button" class="btn btn-primary" id="saveModelBtn">Save</button>
-                </div>
-            </div>
-        </div>
     </div>
 </body>
 </html>
@@ -1132,7 +1054,6 @@ function renderModelList() {
             <h3>${model.name}</h3>
             <p>${model.description}</p>
             <p><small>Created: ${model.dateCreated}</small></p>
-            <p>API: ${model.apiName}</p>
             <div class="button-group">
                 <button class="btn btn-sm btn-primary edit-btn" data-index="${index}">Edit</button>
                 <button class="btn btn-sm btn-primary duplicate-btn" data-index="${index}">Duplicate</button>
@@ -1234,7 +1155,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('modelInstanceName').value = modelData.model.name;
         document.getElementById('description').value = modelData.model.description;
         document.getElementById('apiName').value = modelData.model.apiName;
-        document.getElementById('systemPrompt').value = modelData.model.systemPrompt;
         document.getElementById('curlCommand').value = modelData.model.curl_command;
         document.getElementById('responseParser').value = modelData.model.responseParser;
     }
@@ -1248,7 +1168,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 name: document.getElementById('modelInstanceName').value,
                 description: document.getElementById('description').value,
                 apiName: document.getElementById('apiName').value,
-                systemPrompt: document.getElementById('systemPrompt').value,
                 curl_command: document.getElementById('curlCommand').value,
                 responseParser: document.getElementById('responseParser').value,
                 dateCreated: modelData.model ? modelData.model.dateCreated : new Date().toISOString().split('T')[0]
@@ -1420,10 +1339,16 @@ function renderAPIList() {
             <h3>${api.name}</h3>
             <p>${api.description}</p>
             <p><small>Created: ${api.dateCreated}</small></p>
-            <p>API Key: <span class="api-key">****${api.apiKey.slice(-4)}</span></p>
-            <button class="btn btn-sm btn-primary edit-btn" data-index="${index}">Edit</button>
-            <button class="btn btn-sm btn-danger delete-btn" data-index="${index}">Delete</button>
         `;
+        
+        // Add buttons only if the className is not "AI Macros"
+        if (api.name !== "AI Macros") {
+            card.innerHTML += `
+                <button class="btn btn-sm btn-primary edit-btn" data-index="${index}">Edit</button>
+                <button class="btn btn-sm btn-danger delete-btn" data-index="${index}">Delete</button>
+            `;
+        }
+
         apiList.appendChild(card);
     });
 
@@ -1530,17 +1455,16 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 ```js
 const defaultModels = [
     {
-        name: "GPT-4o-agent",
-        description: "GPT-4o LLM by OpenAI",
-        apiName: "OpenAI",
-        systemPrompt: "You are a helpful assistant.",
+        name: "OpenAI/GPT-4o",
+        description: "Base GPT-4o LLM by OpenAI",
+        apiName: "AI Macros",
         curl_command: `curl https://api.openai.com/v1/chat/completions \\
             -H "Content-Type: application/json" \\
             -H "Authorization: Bearer $$apiName$$" \\
             -d '{
                 "model": "$$modelInstanceName$$",
                 "messages": [{"role": "system", "content": "$$systemPrompt$$"},{"role": "user", "content": "$$userPrompt$$"}],
-                "temperature": 0.7
+                "temperature": $$temperature$$
             }'`,
         responseParser: "choices.0.message.content",
         dateCreated: "2023-01-15"
@@ -1557,20 +1481,26 @@ import { OPENAI_API_KEY } from './personal_apis.js';
 
 const defaultApis = [
     {
+        name: "AI Macros",
+        description: "Your AI Macros API key.",
+        apiKey: "SAMPLE_AI_MACROS_API_KEY",
+        dateCreated: "2024-01-01"
+    },
+    {
         name: "OpenAI",
-        description: "GPT-3.5 and GPT-4 models for natural language processing",
+        description: "Edit to enter your API key.",
         apiKey: OPENAI_API_KEY,
         dateCreated: "2023-01-15"
     },
     {
         name: "Anthropic",
-        description: "Claude AI models for various language tasks",
+        description: "Edit to enter your API key.",
         apiKey: "????",
         dateCreated: "2023-03-22"
     },
     {
         name: "Google",
-        description: "PaLM API for text generation and analysis",
+        description: "Edit to enter your API key.",
         apiKey: "????",
         dateCreated: "2023-05-10"
     }

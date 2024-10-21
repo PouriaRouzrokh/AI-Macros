@@ -31,6 +31,16 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     // Forward the message to the appropriate content script
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       if (tabs[0]) {
+        chrome.tabs.sendMessage(tabs[0].id, request, (response) => {
+          sendResponse(response);
+        });
+        return true; // Indicates that the response will be sent asynchronously
+      }
+    });
+  } else if (request.action === 'refreshList') {
+    // Forward the refresh request to the content script
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+      if (tabs[0]) {
         chrome.tabs.sendMessage(tabs[0].id, request);
       }
     });

@@ -11,7 +11,7 @@
     <div class="modal-wrapper">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modelModalLabel">Add/Edit Model</h5>
+                <h5 class="model-instance-title" id="modelModalLabel">Add/Edit Model Instance</h5>
                 <button type="button" class="btn-close" id="closeBtn" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -31,17 +31,26 @@
                             <option value="">Select an API</option>
                         </select>
                     </div>
-                    <div class="mb-3">
-                        <label for="systemPrompt" class="form-label">System Prompt</label>
-                        <textarea class="form-control auto-resize" id="systemPrompt" rows="3" required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="curlCommand" class="form-label">Curl Command</label>
-                        <textarea class="form-control auto-resize" id="curlCommand" rows="5" required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="responseParser" class="form-label">Response Parser</label>
-                        <input type="text" class="form-control" id="responseParser" required>
+                    <div class="accordion" id="advancedAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="advancedHeading">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#advancedCollapse" aria-expanded="false" aria-controls="advancedCollapse">
+                                    Advanced
+                                </button>
+                            </h2>
+                            <div id="advancedCollapse" class="accordion-collapse collapse" aria-labelledby="advancedHeading">
+                                <div class="accordion-body">
+                                    <div class="mb-3">
+                                        <label for="curlCommand" class="form-label">Curl Command</label>
+                                        <textarea class="form-control auto-resize" id="curlCommand" rows="5" required></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="responseParser" class="form-label">Response Parser</label>
+                                        <input type="text" class="form-control" id="responseParser" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -52,6 +61,7 @@
         </div>
     </div>
 
+    <script src="../../libs/bootstrap.bundle.min.js"></script>
     <script src="../../src/model_modal.js"></script>
 </body>
 </html>
