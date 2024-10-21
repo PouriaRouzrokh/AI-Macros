@@ -1,5 +1,3 @@
-import { OPENAI_API_KEY } from './personal_apis.js';
-
 const defaultApis = [
     {
         name: "AI Macros",
@@ -10,7 +8,7 @@ const defaultApis = [
     {
         name: "OpenAI",
         description: "Edit to enter your API key.",
-        apiKey: OPENAI_API_KEY,
+        apiKey: "????",
         dateCreated: "2023-01-15"
     },
     {
