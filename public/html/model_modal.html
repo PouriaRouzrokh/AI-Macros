@@ -11,7 +11,7 @@
     <div class="modal-wrapper">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="model-instance-title" id="modelModalLabel">Add/Edit Model Instance</h5>
+                <h5 class="model-instance-title" id="modelInstanceTitle">Add/Edit Model Instance</h5>
                 <button type="button" class="btn-close" id="closeBtn" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -24,6 +24,12 @@
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
                         <textarea class="form-control auto-resize" id="description" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="modelName" class="form-label">Model Name</label>
+                        <select class="form-select" id="modelName">
+                            <option value="">Select a model</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="apiName" class="form-label">API Name</label>

@@ -19,9 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (modelData.model) {
         document.getElementById('modelId').value = modelIndex;
-        document.getElementById('modelInstanceName').value = modelData.model.name;
+        document.getElementById('modelInstanceName').value = modelData.model.instanceName;
         document.getElementById('description').value = modelData.model.description;
         document.getElementById('apiName').value = modelData.model.apiName;
+        document.getElementById('modelName').value = modelData.model.modelName;
         document.getElementById('curlCommand').value = modelData.model.curl_command;
         document.getElementById('responseParser').value = modelData.model.responseParser;
     }
@@ -32,9 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
     saveBtn.addEventListener('click', () => {
         if (form.checkValidity()) {
             const model = {
-                name: document.getElementById('modelInstanceName').value,
+                instanceName: document.getElementById('modelInstanceName').value,
                 description: document.getElementById('description').value,
                 apiName: document.getElementById('apiName').value,
+                modelName: document.getElementById('modelName').value,
                 curl_command: document.getElementById('curlCommand').value,
                 responseParser: document.getElementById('responseParser').value,
                 dateCreated: modelData.model ? modelData.model.dateCreated : new Date().toISOString().split('T')[0]
